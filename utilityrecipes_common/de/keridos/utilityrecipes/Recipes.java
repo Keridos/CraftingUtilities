@@ -1,6 +1,3 @@
-/**
- *
- */
 package de.keridos.utilityrecipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -13,16 +10,16 @@ public class Recipes {
 
     public static void registerRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", Character.valueOf('B'),
+            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B',
                     new ItemStack(Block.stoneBrick, 1, 0));
         }
         if (Config.crackedStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", Character.valueOf('B'),
+            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B',
                     new ItemStack(Block.stoneBrick, 1, 3));
         }
         if (Config.grassCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", Character.valueOf('D'),
-                    new ItemStack(Block.dirt, 1), Character.valueOf('S'), new ItemStack(Item.seeds, 1));
+            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D',
+                    new ItemStack(Block.dirt, 1), 'S', new ItemStack(Item.seeds, 1));
         }
         if (Config.mossyCobbleCrafting) {
             GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds,
@@ -33,34 +30,34 @@ public class Recipes {
                     Item.seeds, Item.seeds, Item.seeds);
         }
         if (Config.slabToBlockCobbleCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", Character.valueOf('S'), new ItemStack(Block.stoneSingleSlab, 1, 3));
+            GameRegistry.addRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 3));
         }
         if (Config.slabToBlockBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.brick, 1), "S", "S", Character.valueOf('S'), new ItemStack(Block.stoneSingleSlab, 1, 4));
+            GameRegistry.addRecipe(new ItemStack(Block.brick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 4));
         }
         if (Config.slabToBlockStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 0), "S", "S", Character.valueOf('S'), new ItemStack(Block.stoneSingleSlab, 1, 5));
+            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 0), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 5));
         }
         if (Config.slabToBlockNetherBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.netherBrick, 1), "S", "S", Character.valueOf('S'), new ItemStack(Block.stoneSingleSlab, 1, 6));
+            GameRegistry.addRecipe(new ItemStack(Block.netherBrick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 6));
         }
         if (Config.slabToBlockOakWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 0), "S", "S", Character.valueOf('S'), new ItemStack(Block.woodSingleSlab, 1, 0));
+            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 0), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 0));
         }
         if (Config.slabToBlockSpruceWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 1), "S", "S", Character.valueOf('S'), new ItemStack(Block.woodSingleSlab, 1, 1));
+            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 1), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 1));
         }
         if (Config.slabToBlockBirchWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 2), "S", "S", Character.valueOf('S'), new ItemStack(Block.woodSingleSlab, 1, 2));
+            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 2), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 2));
         }
         if (Config.slabToBlockJungleWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 3), "S", "S", Character.valueOf('S'), new ItemStack(Block.woodSingleSlab, 1, 3));
+            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 3), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 3));
         }
         if (Config.stoneDoubleSlabCrafting) {
             GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 0), new ItemStack(Block.stoneDoubleSlab, 1, 8));
         }
         if (Config.stoneSlabToFullSlabCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 8), "S", "S", Character.valueOf('S'), new ItemStack(Block.stoneSingleSlab, 1, 0));
+            GameRegistry.addRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 8), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 0));
         }
         if (Config.brickUncrafting) {
             GameRegistry.addShapelessRecipe(new ItemStack(Item.brick, 4), Block.brick);
