@@ -112,11 +112,6 @@
         <copy todir="${classes.dir}/resources/">
             <fileset dir="${resources.dir}"/>
         </copy>
-        <copy todir="${classes.dir}" file="utilityrecipes_common/mcmod.info">
-            <filterset>
-                <filter token="MOD_VERSION" value="${fullversion}"/>
-            </filterset>
-        </copy>
     </target>
 
     <target name="setup-forge" depends="download-forge" unless="forge-already-installed">
