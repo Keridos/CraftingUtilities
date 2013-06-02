@@ -185,7 +185,9 @@ public class Recipes {
 
     public static void initRecipes() {
         registerCraftingRecipes();
-        registerSmeltingRecipes();
+        if (!ModCompability.GTLoaded) {
+            registerSmeltingRecipes();
+        }
         if (ModCompability.IC2Loaded) {
             registerIC2Recipes();
         }

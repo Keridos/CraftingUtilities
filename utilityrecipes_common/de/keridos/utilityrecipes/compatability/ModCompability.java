@@ -8,10 +8,12 @@ public class ModCompability {
 
     public static boolean IC2Loaded;
     public static boolean TELoaded;
+    public static boolean GTLoaded;
 
     public static void checkForMods() {
         IC2Loaded = Loader.isModLoaded("IC2");
         TELoaded = Loader.isModLoaded("ThermalExpansion");
+        GTLoaded = Loader.isModLoaded("GregTech_Addon");
     }
 
     public static ItemStack getIC2Item(String name) {
