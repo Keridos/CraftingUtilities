@@ -7,6 +7,8 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import de.keridos.utilityrecipes.compatability.ModCompability;
+import de.keridos.utilityrecipes.data.Config;
 import de.keridos.utilityrecipes.lib.Reference;
 import net.minecraftforge.common.Configuration;
 
@@ -20,6 +22,7 @@ public class UtilityRecipes {
 
     @Init
     public void init(FMLInitializationEvent event) {
+        ModCompability.checkForMods();
         Recipes.initRecipes();
     }
 

@@ -1,13 +1,15 @@
 package de.keridos.utilityrecipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import de.keridos.utilityrecipes.compatability.ModCompability;
+import de.keridos.utilityrecipes.data.Config;
+import ic2.api.recipe.IMachineRecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
+import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class Recipes {
-
     private static void registerCraftingRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B',
@@ -110,34 +112,82 @@ public class Recipes {
     }
 
     private static void registerSmeltingRecipes() {
-        if (Config.ironPickaxeUnsmelting) {
-            GameRegistry.addSmelting(257, new ItemStack(Item.ingotIron, 2), 1.0F);
+        if (Config.ironPickaxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(257, 0, new ItemStack(Item.ingotIron, 2), 0.1F);
         }
-        if (Config.ironAxeUnsmelting) {
-            GameRegistry.addSmelting(258, new ItemStack(Item.ingotIron, 2), 1.0F);
+        if (Config.ironAxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(258, 0, new ItemStack(Item.ingotIron, 2), 0.1F);
         }
-        if (Config.ironHoeUnsmelting) {
-            GameRegistry.addSmelting(292, new ItemStack(Item.ingotIron, 1), 1.0F);
+        if (Config.ironHoeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(292, 0, new ItemStack(Item.ingotIron, 1), 0.1F);
         }
-        if (Config.ironSwordUnsmelting) {
-            GameRegistry.addSmelting(267, new ItemStack(Item.ingotIron, 1), 1.0F);
+        if (Config.ironSwordSmelting) {
+            FurnaceRecipes.smelting().addSmelting(267, 0, new ItemStack(Item.ingotIron, 1), 0.1F);
         }
-        if (Config.goldPickaxeUnsmelting) {
-            GameRegistry.addSmelting(284, new ItemStack(Item.ingotGold, 2), 1.0F);
+        if (Config.ironHelmetSmelting) {
+            FurnaceRecipes.smelting().addSmelting(306, 0, new ItemStack(Item.ingotIron, 4), 0.1F);
         }
-        if (Config.goldAxeUnsmelting) {
-            GameRegistry.addSmelting(286, new ItemStack(Item.ingotGold, 2), 1.0F);
+        if (Config.ironChestplateSmelting) {
+            FurnaceRecipes.smelting().addSmelting(307, 0, new ItemStack(Item.ingotIron, 7), 0.1F);
         }
-        if (Config.goldHoeUnsmelting) {
-            GameRegistry.addSmelting(294, new ItemStack(Item.ingotGold, 1), 1.0F);
+        if (Config.ironLeggingsSmelting) {
+            FurnaceRecipes.smelting().addSmelting(308, 0, new ItemStack(Item.ingotIron, 6), 0.1F);
         }
-        if (Config.goldSwordUnsmelting) {
-            GameRegistry.addSmelting(283, new ItemStack(Item.ingotGold, 1), 1.0F);
+        if (Config.ironBootsSmelting) {
+            FurnaceRecipes.smelting().addSmelting(309, 0, new ItemStack(Item.ingotIron, 3), 0.1F);
+        }
+        if (Config.goldPickaxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(284, 0, new ItemStack(Item.ingotGold, 2), 0.1F);
+        }
+        if (Config.goldAxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(286, 0, new ItemStack(Item.ingotGold, 2), 0.1F);
+        }
+        if (Config.goldHoeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(294, 0, new ItemStack(Item.ingotGold, 1), 0.1F);
+        }
+        if (Config.goldSwordSmelting) {
+            FurnaceRecipes.smelting().addSmelting(283, 0, new ItemStack(Item.ingotGold, 1), 0.1F);
+        }
+        if (Config.goldHelmetSmelting) {
+            FurnaceRecipes.smelting().addSmelting(314, 0, new ItemStack(Item.ingotGold, 4), 0.1F);
+        }
+        if (Config.goldChestplateSmelting) {
+            FurnaceRecipes.smelting().addSmelting(315, 0, new ItemStack(Item.ingotGold, 7), 0.1F);
+        }
+        if (Config.goldLeggingsSmelting) {
+            FurnaceRecipes.smelting().addSmelting(316, 0, new ItemStack(Item.ingotGold, 6), 0.1F);
+        }
+        if (Config.goldBootsSmelting) {
+            FurnaceRecipes.smelting().addSmelting(317, 0, new ItemStack(Item.ingotGold, 3), 0.1F);
         }
     }
+
+
+    private static void registerIC2Recipes() {
+        if (Config.bronzePickaxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzePickaxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        }
+        if (Config.bronzeAxeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeAxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        }
+        if (Config.bronzeHoeSmelting) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeHoe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        }
+        if (Config.bronzeSwordSmelting) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeSword").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
+        }
+        if (Config.coalDustCompression) {
+            IMachineRecipeManager compressor = ic2.api.recipe.Recipes.compressor;
+            compressor.addRecipe(ModCompability.getIC2Item("coalDust"), new ItemStack(Item.coal));
+        }
+    }
+
 
     public static void initRecipes() {
         registerCraftingRecipes();
         registerSmeltingRecipes();
+        if (ModCompability.IC2Loaded) {
+            registerIC2Recipes();
+        }
     }
 }
