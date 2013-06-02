@@ -4,7 +4,7 @@
 
 
     <!-- Versions -->
-    <property name="build.ver" value="0.0.2"/>
+    <property name="build.ver" value="0.0.3"/>
     <property name="fullversion" value="${build.ver}"/>
     <property name="mcp.version" value="744"/>
     <property name="forgebuild" value="682"/>
@@ -108,8 +108,7 @@
         <copy todir="${classes.dir}/de">
             <fileset dir="${mcp.dir}/reobf/minecraft/de"/>
         </copy>
-        <mkdir dir="${classes.dir}/resources"/>
-        <copy todir="${classes.dir}/resources/">
+        <copy todir="${classes.dir}">
             <fileset dir="${resources.dir}"/>
         </copy>
     </target>
