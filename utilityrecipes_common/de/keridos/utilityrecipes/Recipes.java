@@ -137,7 +137,7 @@ public class Recipes {
             FurnaceRecipes.smelting().addSmelting(309, 0, new ItemStack(Item.ingotIron, 3), 0.1F);
         }
         if (Config.goldPickaxeSmelting) {
-            FurnaceRecipes.smelting().addSmelting(284, 0, new ItemStack(Item.ingotGold, 2), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(285, 0, new ItemStack(Item.ingotGold, 2), 0.1F);
         }
         if (Config.goldAxeSmelting) {
             FurnaceRecipes.smelting().addSmelting(286, 0, new ItemStack(Item.ingotGold, 2), 0.1F);
