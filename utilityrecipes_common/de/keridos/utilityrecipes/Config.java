@@ -36,6 +36,16 @@ public class Config {
     public static boolean stairsJungleWoodUncrafting;
     public static boolean stairsQuartzUncrafting;
 
+    public static boolean ironPickaxeUnsmelting;
+    public static boolean ironAxeUnsmelting;
+    public static boolean ironHoeUnsmelting;
+    public static boolean ironSwordUnsmelting;
+    public static boolean goldPickaxeUnsmelting;
+    public static boolean goldAxeUnsmelting;
+    public static boolean goldHoeUnsmelting;
+    public static boolean goldSwordUnsmelting;
+
+
     public static void initConfig(Configuration config) {
         config.load();
         config.getCategory("crafting");
@@ -74,6 +84,16 @@ public class Config {
         stairsBirchWoodUncrafting = config.get("uncrafting", "stairsBirchWoodUncrafting", true).getBoolean(true);
         stairsJungleWoodUncrafting = config.get("uncrafting", "stairsJungleWoodUncrafting", true).getBoolean(true);
         stairsQuartzUncrafting = config.get("uncrafting", "stairsQuartzUncrafting", true).getBoolean(true);
+
+        ironPickaxeUnsmelting = config.get("smelting", "ironPickaxeUnsmelting", true).getBoolean(true);
+        ironAxeUnsmelting = config.get("smelting", "ironAxeUnsmelting", true).getBoolean(true);
+        ironHoeUnsmelting = config.get("smelting", "ironHoeUnsmelting", true).getBoolean(true);
+        ironSwordUnsmelting = config.get("smelting", "ironSwordUnsmelting", true).getBoolean(true);
+        goldPickaxeUnsmelting = config.get("smelting", "goldPickaxeUnsmelting", true).getBoolean(true);
+        goldAxeUnsmelting = config.get("smelting", "goldAxeUnsmelting", true).getBoolean(true);
+        goldHoeUnsmelting = config.get("smelting", "goldHoeUnsmelting", true).getBoolean(true);
+        goldSwordUnsmelting = config.get("smelting", "goldSwordUnsmelting", true).getBoolean(true);
+
         config.save();
     }
 }

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class Recipes {
 
-    public static void registerRecipes() {
+    private static void registerCraftingRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B',
                     new ItemStack(Block.stoneBrick, 1, 0));
@@ -107,5 +107,37 @@ public class Recipes {
         if (Config.stairsQuartzUncrafting) {
             GameRegistry.addShapelessRecipe(new ItemStack(Block.blockNetherQuartz, 3, 0), Block.stairsNetherQuartz, Block.stairsNetherQuartz);
         }
+    }
+
+    private static void registerSmeltingRecipes() {
+        if (Config.ironPickaxeUnsmelting) {
+            GameRegistry.addSmelting(257, new ItemStack(Item.ingotIron, 2), 1.0F);
+        }
+        if (Config.ironAxeUnsmelting) {
+            GameRegistry.addSmelting(258, new ItemStack(Item.ingotIron, 2), 1.0F);
+        }
+        if (Config.ironHoeUnsmelting) {
+            GameRegistry.addSmelting(292, new ItemStack(Item.ingotIron, 1), 1.0F);
+        }
+        if (Config.ironSwordUnsmelting) {
+            GameRegistry.addSmelting(267, new ItemStack(Item.ingotIron, 1), 1.0F);
+        }
+        if (Config.goldPickaxeUnsmelting) {
+            GameRegistry.addSmelting(284, new ItemStack(Item.ingotGold, 2), 1.0F);
+        }
+        if (Config.goldAxeUnsmelting) {
+            GameRegistry.addSmelting(286, new ItemStack(Item.ingotGold, 2), 1.0F);
+        }
+        if (Config.goldHoeUnsmelting) {
+            GameRegistry.addSmelting(294, new ItemStack(Item.ingotGold, 1), 1.0F);
+        }
+        if (Config.goldSwordUnsmelting) {
+            GameRegistry.addSmelting(283, new ItemStack(Item.ingotGold, 1), 1.0F);
+        }
+    }
+
+    public static void registerRecipes() {
+        registerCraftingRecipes();
+        registerSmeltingRecipes();
     }
 }
