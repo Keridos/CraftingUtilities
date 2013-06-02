@@ -12,24 +12,19 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 public class Recipes {
     private static void registerCraftingRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B',
-                    new ItemStack(Block.stoneBrick, 1, 0));
+            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 0));
         }
         if (Config.crackedStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B',
-                    new ItemStack(Block.stoneBrick, 1, 3));
+            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 3));
         }
         if (Config.grassCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D',
-                    new ItemStack(Block.dirt, 1), 'S', new ItemStack(Item.seeds, 1));
+            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D', new ItemStack(Block.dirt, 1), 'S', new ItemStack(Item.seeds, 1));
         }
         if (Config.mossyCobbleCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds,
-                    Item.seeds, Item.seeds, Item.seeds);
+            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds, Item.seeds, Item.seeds, Item.seeds);
         }
         if (Config.mossyStoneBrickCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds,
-                    Item.seeds, Item.seeds, Item.seeds);
+            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds, Item.seeds, Item.seeds, Item.seeds);
         }
         if (Config.slabToBlockCobbleCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 3));
@@ -162,26 +157,36 @@ public class Recipes {
         }
     }
 
-
     private static void registerIC2Recipes() {
-        if (Config.bronzePickaxeSmelting) {
+        if (Config.bronzePickaxeSmelting && !ModCompability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzePickaxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeAxeSmelting) {
+        if (Config.bronzeAxeSmelting && !ModCompability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeAxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeHoeSmelting) {
+        if (Config.bronzeHoeSmelting && !ModCompability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeHoe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeSwordSmelting) {
+        if (Config.bronzeSwordSmelting && !ModCompability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeSword").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
         }
+        if (Config.bronzeHelmetSmelting && !ModCompability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeHelmet").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 4), 0.1F);
+        }
+        if (Config.bronzeChestplateSmelting && !ModCompability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeChestplate").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 7), 0.1F);
+        }
+        if (Config.bronzeLeggingsSmelting && !ModCompability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeLeggings").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 6), 0.1F);
+        }
+        if (Config.bronzeBootsSmelting && !ModCompability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeBoots").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
+        }
         if (Config.coalDustCompression) {
-            IMachineRecipeManager compressor = ic2.api.recipe.Recipes.compressor;
-            compressor.addRecipe(ModCompability.getIC2Item("coalDust"), new ItemStack(Item.coal));
+            IMachineRecipeManager IC2Compressor = ic2.api.recipe.Recipes.compressor;
+            IC2Compressor.addRecipe(ModCompability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
         }
     }
-
 
     public static void initRecipes() {
         registerCraftingRecipes();

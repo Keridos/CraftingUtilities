@@ -57,9 +57,14 @@ public class Config {
     public static boolean bronzeAxeSmelting;
     public static boolean bronzeHoeSmelting;
     public static boolean bronzeSwordSmelting;
+    public static boolean bronzeHelmetSmelting;
+    public static boolean bronzeChestplateSmelting;
+    public static boolean bronzeLeggingsSmelting;
+    public static boolean bronzeBootsSmelting;
     public static boolean coalDustCompression;
 
     private static void craftingConfig(Configuration config) {
+        config.getCategory("crafting");
         config.getCategory("crafting");
         chiseledStoneBrickCrafting = config.get("crafting", "chiseledStoneBrickCrafting", true).getBoolean(true);
         crackedStoneBrickCrafting = config.get("crafting", "crackedStoneBrickCrafting", true).getBoolean(true);
@@ -125,6 +130,10 @@ public class Config {
         bronzeAxeSmelting = config.get("ic2", "bronzeAxeSmelting", true).getBoolean(true);
         bronzeHoeSmelting = config.get("ic2", "bronzeHoeSmelting", true).getBoolean(true);
         bronzeSwordSmelting = config.get("ic2", "bronzeSwordSmelting", true).getBoolean(true);
+        bronzeHelmetSmelting = config.get("ic2", "bronzeHelmetSmelting", true).getBoolean(true);
+        bronzeChestplateSmelting = config.get("ic2", "bronzeChestplateSmelting", true).getBoolean(true);
+        bronzeLeggingsSmelting = config.get("ic2", "bronzeLeggingsSmelting", true).getBoolean(true);
+        bronzeBootsSmelting = config.get("ic2", "bronzeBootsSmelting", true).getBoolean(true);
         coalDustCompression = config.get("ic2", "coalDustCompression", true).getBoolean(true);
     }
 
