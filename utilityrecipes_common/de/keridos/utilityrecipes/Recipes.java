@@ -136,7 +136,7 @@ public class Recipes {
         }
     }
 
-    public static void registerRecipes() {
+    public static void initRecipes() {
         registerCraftingRecipes();
         registerSmeltingRecipes();
     }

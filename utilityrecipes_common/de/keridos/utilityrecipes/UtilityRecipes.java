@@ -20,7 +20,7 @@ public class UtilityRecipes {
 
     @Init
     public void init(FMLInitializationEvent event) {
-        Recipes.registerRecipes();
+        Recipes.initRecipes();
     }
 
     @PostInit
