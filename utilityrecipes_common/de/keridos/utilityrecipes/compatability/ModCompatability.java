@@ -3,7 +3,7 @@ package de.keridos.utilityrecipes.compatability;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.item.ItemStack;
 
-public class ModCompability {
+public class ModCompatability {
     private static Class Ic2Items;
 
     public static boolean IC2Loaded;

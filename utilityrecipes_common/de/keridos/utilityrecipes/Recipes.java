@@ -1,7 +1,7 @@
 package de.keridos.utilityrecipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import de.keridos.utilityrecipes.compatability.ModCompability;
+import de.keridos.utilityrecipes.compatability.ModCompatability;
 import de.keridos.utilityrecipes.data.Config;
 import ic2.api.recipe.IMachineRecipeManager;
 import net.minecraft.block.Block;
@@ -158,42 +158,42 @@ public class Recipes {
     }
 
     private static void registerIC2Recipes() {
-        if (Config.bronzePickaxeSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzePickaxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        if (Config.bronzePickaxeSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzePickaxe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeAxeSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeAxe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        if (Config.bronzeAxeSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeAxe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeHoeSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeHoe").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+        if (Config.bronzeHoeSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHoe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
-        if (Config.bronzeSwordSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeSword").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
+        if (Config.bronzeSwordSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeSword").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
         }
-        if (Config.bronzeHelmetSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeHelmet").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 4), 0.1F);
+        if (Config.bronzeHelmetSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHelmet").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 4), 0.1F);
         }
-        if (Config.bronzeChestplateSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeChestplate").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 7), 0.1F);
+        if (Config.bronzeChestplateSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeChestplate").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 7), 0.1F);
         }
-        if (Config.bronzeLeggingsSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeLeggings").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 6), 0.1F);
+        if (Config.bronzeLeggingsSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeLeggings").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 6), 0.1F);
         }
-        if (Config.bronzeBootsSmelting && !ModCompability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompability.getIC2Item("bronzeBoots").itemID, 0, new ItemStack(ModCompability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
+        if (Config.bronzeBootsSmelting && !ModCompatability.GTLoaded) {
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
         }
         if (Config.coalDustCompression) {
             IMachineRecipeManager IC2Compressor = ic2.api.recipe.Recipes.compressor;
-            IC2Compressor.addRecipe(ModCompability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
+            IC2Compressor.addRecipe(ModCompatability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
         }
     }
 
     public static void initRecipes() {
         registerCraftingRecipes();
-        if (!ModCompability.GTLoaded) {
+        if (!ModCompatability.GTLoaded) {
             registerSmeltingRecipes();
         }
-        if (ModCompability.IC2Loaded) {
+        if (ModCompatability.IC2Loaded) {
             registerIC2Recipes();
         }
     }
