@@ -1,8 +1,7 @@
-package de.keridos.utilityrecipes;
+package de.keridos.utilityrecipes.data;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
-import de.keridos.utilityrecipes.data.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,13 +16,16 @@ public class Recipes {
             GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 3));
         }
         if (Config.grassCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D', new ItemStack(Block.dirt, 1), 'S', new ItemStack(Item.seeds, 1));
+            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D', new ItemStack(Block.dirt, 1), 'S',
+                    new ItemStack(Item.seeds, 1));
         }
         if (Config.mossyCobbleCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds, Item.seeds, Item.seeds, Item.seeds);
+            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds, Item.seeds, Item.seeds,
+                    Item.seeds);
         }
         if (Config.mossyStoneBrickCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds, Item.seeds, Item.seeds, Item.seeds);
+            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds, Item.seeds, Item.seeds,
+                    Item.seeds);
         }
         if (Config.slabToBlockCobbleCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 3));
@@ -101,7 +103,8 @@ public class Recipes {
             GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 3, 4), Block.stairsWoodJungle, Block.stairsWoodJungle);
         }
         if (Config.stairsQuartzUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.blockNetherQuartz, 3, 0), Block.stairsNetherQuartz, Block.stairsNetherQuartz);
+            GameRegistry.addShapelessRecipe(new ItemStack(Block.blockNetherQuartz, 3, 0), Block.stairsNetherQuartz,
+                    Block.stairsNetherQuartz);
         }
     }
 
@@ -159,35 +162,43 @@ public class Recipes {
     private static void registerIC2Recipes() {
         if (Config.bronzePickaxeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzePickaxe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
+                    0.1F);
         }
         if (Config.bronzeAxeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeAxe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
+                    0.1F);
         }
         if (Config.bronzeHoeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHoe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
+                    0.1F);
         }
         if (Config.bronzeSwordSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeSword").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 1), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 1),
+                    0.1F);
         }
         if (Config.bronzeHelmetSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHelmet").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 4), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 4),
+                    0.1F);
         }
         if (Config.bronzeChestplateSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeChestplate").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 7), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 7),
+                    0.1F);
         }
         if (Config.bronzeLeggingsSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeLeggings").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 6), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 6),
+                    0.1F);
         }
         if (Config.bronzeBootsSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 3), 0.1F);
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 3),
+                    0.1F);
         }
     }
 

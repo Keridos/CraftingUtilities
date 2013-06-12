@@ -1,5 +1,6 @@
-package de.keridos.utilityrecipes;
+package de.keridos.utilityrecipes.compatability;
 
+import de.keridos.utilityrecipes.data.Recipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary;

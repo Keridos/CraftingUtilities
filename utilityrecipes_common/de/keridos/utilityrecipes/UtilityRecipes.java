@@ -7,8 +7,10 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import de.keridos.utilityrecipes.compatability.EventHandler;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import de.keridos.utilityrecipes.data.Config;
+import de.keridos.utilityrecipes.data.Recipes;
 import de.keridos.utilityrecipes.lib.Reference;
 import net.minecraftforge.common.Configuration;
 
