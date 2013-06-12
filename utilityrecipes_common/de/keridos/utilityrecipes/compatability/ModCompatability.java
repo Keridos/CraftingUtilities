@@ -18,8 +18,7 @@ public class ModCompatability {
 
     public static ItemStack getIC2Item(String name) {
         try {
-            if (Ic2Items == null)
-                Ic2Items = Class.forName("ic2.core.Ic2Items");
+            if (Ic2Items == null) Ic2Items = Class.forName("ic2.core.Ic2Items");
 
             Object ret = Ic2Items.getField(name).get(null);
 
@@ -33,13 +32,13 @@ public class ModCompatability {
         }
     }
 
-    public static ItemStack getGregTechItem(int aIndex, int aAmount, int aMeta) {
-        if (GTLoaded) {
+    public static ItemStack getUnificatedOreDictStack(ItemStack aOreStack) {
+        if (ModCompatability.GTLoaded) {
             try {
-                return (ItemStack) Class.forName("gregtechmod.GT_Mod").getMethod("getGregTechItem", int.class, int.class, int.class).invoke(null, aIndex, aAmount, aMeta);
+                return gregtechmod.api.util.GT_OreDictUnificator.get(aOreStack);
             } catch (Exception e) {
             }
         }
-        return null;
+        return aOreStack;
     }
 }

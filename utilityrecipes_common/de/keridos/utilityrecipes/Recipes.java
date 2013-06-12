@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes {
     private static void registerCraftingRecipes() {
@@ -159,39 +158,42 @@ public class Recipes {
 
     private static void registerIC2Recipes() {
         if (Config.bronzePickaxeSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzePickaxe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzePickaxe").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
         }
         if (Config.bronzeAxeSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeAxe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeAxe").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
         }
         if (Config.bronzeHoeSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHoe").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHoe").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2), 0.1F);
         }
         if (Config.bronzeSwordSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeSword").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeSword").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 1), 0.1F);
         }
         if (Config.bronzeHelmetSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHelmet").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 4), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHelmet").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 4), 0.1F);
         }
         if (Config.bronzeChestplateSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeChestplate").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 7), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeChestplate").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 7), 0.1F);
         }
         if (Config.bronzeLeggingsSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeLeggings").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 6), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeLeggings").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 6), 0.1F);
         }
         if (Config.bronzeBootsSmelting && !ModCompatability.GTLoaded) {
-            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
+            FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0,
+                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 3), 0.1F);
         }
-        if (Config.coalDustCompression) {
-            if (ModCompatability.GTLoaded) {
-                for (ItemStack coalDust : OreDictionary.getOres("dustCoal")) {
-                    if (ic2.api.recipe.Recipes.compressor.getOutputFor(coalDust, false) != new ItemStack(Item.coal, 1)) {
-                        ic2.api.recipe.Recipes.compressor.addRecipe(coalDust, new ItemStack(Item.coal, 1));
-                    }
-                }
-            } else {
-                ic2.api.recipe.Recipes.compressor.addRecipe(ModCompatability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
-            }
+    }
+
+    public static void registerOreRecipes(String ItemName, ItemStack item) {
+        if ((Config.coalDustCompression) && (ModCompatability.IC2Loaded) && (ItemName.equals("dustCoal"))) {
+            ic2.api.recipe.Recipes.compressor.addRecipe(item, new ItemStack(Item.coal, 1));
         }
     }
 

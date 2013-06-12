@@ -17,17 +17,20 @@ public class UtilityRecipes {
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
+        ModCompatability.checkForMods();
         Config.initConfig(new Configuration(event.getSuggestedConfigurationFile()));
+        EventHandler.setupEventListener();
     }
 
     @Init
     public void init(FMLInitializationEvent event) {
-        ModCompatability.checkForMods();
+        Recipes.initRecipes();
     }
 
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-        Recipes.initRecipes();
+
     }
+
 
 }
