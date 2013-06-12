@@ -3,8 +3,8 @@
   "modid": "UtilityRecipes",
   "name": "Utility Recipes",
   "description": "Adds a bunch of handy recipes.",
-  "version": "0.0.3",
-  "mcversion": "1.5.1",
+  "version": "0.1.0",
+  "mcversion": "1.5.2",
   "url": "",
   "updateUrl": "",
   "authorList": [
