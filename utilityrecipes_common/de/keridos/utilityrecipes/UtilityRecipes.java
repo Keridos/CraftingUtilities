@@ -26,12 +26,12 @@ public class UtilityRecipes {
 
     @Init
     public void init(FMLInitializationEvent event) {
-        Recipes.initRecipes();
+
     }
 
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-
+        Recipes.initRecipes();
     }
 
 

@@ -37,7 +37,7 @@
         <equals arg1="${forge.build.number}" arg2="${forgebuild}"/>
     </condition>
     <available property="forge-exists" file="${download.dir}/minecraftforge-src-${forge.version}.zip"/>
-    <available property="already-compiled" file="${classes.dir}/net/wirelessredstone"/>
+    <available property="already-compiled" file="${classes.dir}/net/utilityrecipes"/>
 
     <mkdir dir="${download.dir}"/>
     <mkdir dir="${build.dir}"/>
