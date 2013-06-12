@@ -23,12 +23,11 @@ public class UtilityRecipes {
     @Init
     public void init(FMLInitializationEvent event) {
         ModCompatability.checkForMods();
-        Recipes.initRecipes();
     }
 
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-
+        Recipes.initRecipes();
     }
 
 }

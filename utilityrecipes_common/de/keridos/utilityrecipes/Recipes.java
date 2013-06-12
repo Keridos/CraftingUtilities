@@ -3,11 +3,11 @@ package de.keridos.utilityrecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import de.keridos.utilityrecipes.data.Config;
-import ic2.api.recipe.IMachineRecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes {
     private static void registerCraftingRecipes() {
@@ -183,8 +183,15 @@ public class Recipes {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0, new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
         }
         if (Config.coalDustCompression) {
-            IMachineRecipeManager IC2Compressor = ic2.api.recipe.Recipes.compressor;
-            IC2Compressor.addRecipe(ModCompatability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
+            if (ModCompatability.GTLoaded) {
+                for (ItemStack coalDust : OreDictionary.getOres("dustCoal")) {
+                    if (ic2.api.recipe.Recipes.compressor.getOutputFor(coalDust, false) != new ItemStack(Item.coal, 1)) {
+                        ic2.api.recipe.Recipes.compressor.addRecipe(coalDust, new ItemStack(Item.coal, 1));
+                    }
+                }
+            } else {
+                ic2.api.recipe.Recipes.compressor.addRecipe(ModCompatability.getIC2Item("coalDust"), new ItemStack(Item.coal, 1));
+            }
         }
     }
 

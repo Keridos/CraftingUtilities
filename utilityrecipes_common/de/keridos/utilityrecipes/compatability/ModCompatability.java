@@ -32,4 +32,14 @@ public class ModCompatability {
             return null;
         }
     }
+
+    public static ItemStack getGregTechItem(int aIndex, int aAmount, int aMeta) {
+        if (GTLoaded) {
+            try {
+                return (ItemStack) Class.forName("gregtechmod.GT_Mod").getMethod("getGregTechItem", int.class, int.class, int.class).invoke(null, aIndex, aAmount, aMeta);
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
 }
