@@ -204,7 +204,9 @@ public class Recipes {
 
     public static void registerOreRecipes(String ItemName, ItemStack item) {
         if ((Config.coalDustCompression) && (ModCompatability.IC2Loaded) && (ItemName.equals("dustCoal"))) {
-            ic2.api.recipe.Recipes.compressor.addRecipe(item, new ItemStack(Item.coal, 1));
+            if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
+                ic2.api.recipe.Recipes.compressor.addRecipe(item, new ItemStack(Item.coal, 1));
+            }
         }
     }
 

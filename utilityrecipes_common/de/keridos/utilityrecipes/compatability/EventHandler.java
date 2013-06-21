@@ -14,6 +14,5 @@ public class EventHandler {
     @ForgeSubscribe
     public void handleEvent(OreDictionary.OreRegisterEvent event) {
         Recipes.registerOreRecipes(event.Name, event.Ore);
-        System.out.println("oredict found:" + event.Name);
     }
 }
