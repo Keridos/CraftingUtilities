@@ -31,14 +31,4 @@ public class ModCompatability {
             return null;
         }
     }
-
-    public static ItemStack getUnificatedOreDictStack(ItemStack aOreStack) {
-        if (ModCompatability.GTLoaded) {
-            try {
-                return gregtechmod.api.util.GT_OreDictUnificator.get(aOreStack);
-            } catch (Exception e) {
-            }
-        }
-        return aOreStack;
-    }
 }

@@ -4,11 +4,11 @@
 
 
     <!-- Versions -->
-    <property name="build.ver" value="0.1.0"/>
+    <property name="build.ver" value="0.1.1"/>
     <property name="fullversion" value="${build.ver}"/>
-    <property name="mcp.version" value="744"/>
-    <property name="forgebuild" value="682"/>
-    <property name="forge.version" value="1.5.1-7.7.2.${forgebuild}"/>
+    <property name="mcp.version" value="811"/>
+    <property name="forgebuild" value="916"/>
+    <property name="forge.version" value="1.6.4-9.11.1.${forgebuild}"/>
    
     <!-- Directories -->
     <property name="download.dir" value="../../downloads"/>
@@ -77,6 +77,13 @@
     </target>
 
     <target name="copy-source">
+        <delete dir="${mcpsrc.dir}/ic2"/>
+        <copy todir="${mcpsrc.dir}/ic2">
+            <fileset dir="../../source/IC2 API/ic2"/>
+            <filterset>
+                <filter token="MOD_VERSION" value="${fullversion}"/>
+            </filterset>
+        </copy>
         <delete dir="${mcpsrc.dir}/de"/>
         <copy todir="${mcpsrc.dir}/de">
             <fileset dir="${src.dir}/de"/>
@@ -166,9 +173,9 @@
             </classpath>
         </taskdef>
         <echo message="Downloading forge... "/>
-        <getMethod url="http://files.minecraftforge.net/minecraftforge-src-${forge.version}.zip"
+        <getMethod url="http://files.minecraftforge.net/minecraftforge/minecraftforge-src-${forge.version}.zip"
                    responseDataFile="${download.dir}/minecraftforge-src-${forge.version}.zip">
-            <header name="User-Agent" value="Ant-${ant.version}/${ant.java.version}"/>
+            <header name="User-Agent" value="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36"/>
         </getMethod>
     </target>
 

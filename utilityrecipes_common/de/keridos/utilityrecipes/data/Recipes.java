@@ -1,110 +1,140 @@
 package de.keridos.utilityrecipes.data;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
+import ic2.api.recipe.RecipeInputItemStack;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class Recipes {
     private static void registerCraftingRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 0));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 0)));
         }
         if (Config.crackedStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 3));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.stoneBrick, 4, 2), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 3)));
         }
         if (Config.grassCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D', new ItemStack(Block.dirt, 1), 'S',
-                    new ItemStack(Item.seeds, 1));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.grass, 1), "SSS", "SDS", "SSS", 'D', new ItemStack(Block.dirt, 1), 'S',
+                            new ItemStack(Item.seeds, 1)));
         }
         if (Config.mossyCobbleCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds, Item.seeds, Item.seeds,
-                    Item.seeds);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.cobblestoneMossy, 1), Block.cobblestone, Item.seeds, Item.seeds, Item.seeds,
+                            Item.seeds));
         }
         if (Config.mossyStoneBrickCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds, Item.seeds, Item.seeds,
-                    Item.seeds);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.stoneBrick, 1, 1), Block.stoneBrick, Item.seeds, Item.seeds, Item.seeds,
+                            Item.seeds));
         }
         if (Config.slabToBlockCobbleCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 3));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.cobblestone, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 3)));
         }
         if (Config.slabToBlockBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.brick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 4));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.brick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 4)));
         }
         if (Config.slabToBlockStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 0), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 5));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.stoneBrick, 1, 0), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 5)));
         }
         if (Config.slabToBlockNetherBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.netherBrick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 6));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.netherBrick, 1), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 6)));
         }
         if (Config.slabToBlockOakWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 0), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 0));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.planks, 1, 0), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 0)));
         }
         if (Config.slabToBlockSpruceWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 1), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 1));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.planks, 1, 1), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 1)));
         }
         if (Config.slabToBlockBirchWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 2), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 2));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.planks, 1, 2), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 2)));
         }
         if (Config.slabToBlockJungleWoodCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.planks, 1, 3), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 3));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Block.planks, 1, 3), "S", "S", 'S', new ItemStack(Block.woodSingleSlab, 1, 3)));
         }
         if (Config.stoneDoubleSlabCrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 0), new ItemStack(Block.stoneDoubleSlab, 1, 8));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 0), new ItemStack(Block.stoneDoubleSlab, 1, 8)));
         }
         if (Config.stoneSlabToFullSlabCrafting) {
-            GameRegistry.addRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 8), "S", "S", 'S', new ItemStack(Block.stoneSingleSlab, 1, 0));
+            CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(Block.stoneDoubleSlab, 1, 8), "S", "S", 'S',
+                    new ItemStack(Block.stoneSingleSlab, 1, 0)));
         }
         if (Config.brickUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Item.brick, 4), Block.brick);
+            CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Item.brick, 4), Block.brick));
         }
         if (Config.chiseledSandstoneUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneSingleSlab, 2, 1), new ItemStack(Block.sandStone, 1, 1));
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.stoneSingleSlab, 2, 1), new ItemStack(Block.sandStone, 1, 1)));
         }
         if (Config.clayUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Item.clay, 4), Block.blockClay);
+            CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Item.clay, 4), Block.blockClay));
         }
         if (Config.grassUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.dirt, 1), Block.grass);
+            CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Block.dirt, 1), Block.grass));
         }
         if (Config.myceliumUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.dirt, 1), Block.mycelium);
+            CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Block.dirt, 1), Block.mycelium));
         }
         if (Config.wheatUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Item.seeds, 1), Item.wheat);
+            CraftingManager.getInstance().getRecipeList().add(new ShapelessOreRecipe(new ItemStack(Item.seeds, 1), Item.wheat));
         }
         if (Config.stairsOakWoodUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 3, 0), Block.stairsWoodOak, Block.stairsWoodOak);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.planks, 3, 0), Block.stairsWoodOak, Block.stairsWoodOak));
         }
         if (Config.stairsStoneUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestone, 3), Block.stairsCobblestone, Block.stairsCobblestone);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.cobblestone, 3), Block.stairsCobblestone, Block.stairsCobblestone));
         }
         if (Config.stairsBricksUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.brick, 3), Block.stairsBrick, Block.stairsBrick);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.brick, 3), Block.stairsBrick, Block.stairsBrick));
         }
         if (Config.stairsStoneBricksUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.stoneBrick, 3, 0), Block.stairsStoneBrick, Block.stairsStoneBrick);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.stoneBrick, 3, 0), Block.stairsStoneBrick, Block.stairsStoneBrick));
         }
         if (Config.stairsSandstoneUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.sandStone, 3, 0), Block.stairsSandStone, Block.stairsSandStone);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.sandStone, 3, 0), Block.stairsSandStone, Block.stairsSandStone));
         }
         if (Config.stairsNetherBrickUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.netherBrick, 3), Block.stairsNetherBrick, Block.stairsNetherBrick);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.netherBrick, 3), Block.stairsNetherBrick, Block.stairsNetherBrick));
         }
         if (Config.stairsSpruceWoodUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 3, 1), Block.stairsWoodSpruce, Block.stairsWoodSpruce);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.planks, 3, 1), Block.stairsWoodSpruce, Block.stairsWoodSpruce));
         }
         if (Config.stairsBirchWoodUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 3, 2), Block.stairsWoodBirch, Block.stairsWoodBirch);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.planks, 3, 2), Block.stairsWoodBirch, Block.stairsWoodBirch));
         }
         if (Config.stairsJungleWoodUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.planks, 3, 4), Block.stairsWoodJungle, Block.stairsWoodJungle);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.planks, 3, 4), Block.stairsWoodJungle, Block.stairsWoodJungle));
         }
         if (Config.stairsQuartzUncrafting) {
-            GameRegistry.addShapelessRecipe(new ItemStack(Block.blockNetherQuartz, 3, 0), Block.stairsNetherQuartz,
-                    Block.stairsNetherQuartz);
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapelessOreRecipe(new ItemStack(Block.blockNetherQuartz, 3, 0), Block.stairsNetherQuartz,
+                            Block.stairsNetherQuartz));
         }
     }
 
@@ -162,50 +192,43 @@ public class Recipes {
     private static void registerIC2Recipes() {
         if (Config.bronzePickaxeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzePickaxe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
         if (Config.bronzeAxeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeAxe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
         if (Config.bronzeHoeSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHoe").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 2),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 2), 0.1F);
         }
         if (Config.bronzeSwordSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeSword").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 1),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 1), 0.1F);
         }
         if (Config.bronzeHelmetSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeHelmet").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 4),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 4), 0.1F);
         }
         if (Config.bronzeChestplateSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeChestplate").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 7),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 7), 0.1F);
         }
         if (Config.bronzeLeggingsSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeLeggings").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 6),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 6), 0.1F);
         }
         if (Config.bronzeBootsSmelting && !ModCompatability.GTLoaded) {
             FurnaceRecipes.smelting().addSmelting(ModCompatability.getIC2Item("bronzeBoots").itemID, 0,
-                    new ItemStack(ModCompatability.getUnificatedOreDictStack(ModCompatability.getIC2Item("bronzeIngot")).getItem(), 3),
-                    0.1F);
+                    new ItemStack(ModCompatability.getIC2Item("bronzeIngot").getItem(), 3), 0.1F);
         }
     }
 
     public static void registerOreRecipes(String ItemName, ItemStack item) {
         if ((Config.coalDustCompression) && (ModCompatability.IC2Loaded) && (ItemName.equals("dustCoal"))) {
             if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
-                ic2.api.recipe.Recipes.compressor.addRecipe(item, new ItemStack(Item.coal, 1));
+                ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound("0"),
+                        new ItemStack(Item.coal, 1));
             }
         }
     }
