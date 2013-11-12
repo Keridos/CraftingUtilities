@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import de.keridos.utilityrecipes.client.GuiHandler;
 import de.keridos.utilityrecipes.compatability.EventListener;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import de.keridos.utilityrecipes.core.CommonProxy;
@@ -22,7 +23,7 @@ public class UtilityRecipes {
     @Mod.Instance(Reference.MOD_ID)
     public static UtilityRecipes instance;
 
-    @SidedProxy(clientSide = Reference.PROXY_LOCATION + "ClientProxy", serverSide = Reference.PROXY_LOCATION + "ClientProxy")
+    @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".ClientProxy")
     public static CommonProxy proxy;
 
     @EventHandler
@@ -36,6 +37,7 @@ public class UtilityRecipes {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         Blocks.registerBlocks();
+        new GuiHandler();
     }
 
     @EventHandler
