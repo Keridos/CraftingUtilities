@@ -63,6 +63,8 @@ public class Config {
     public static boolean bronzeBootsSmelting;
     public static boolean coalDustCompression;
 
+    public static int autoCrafterID;
+
     private static void craftingConfig(Configuration config) {
         config.getCategory("crafting");
         config.getCategory("crafting");
@@ -137,12 +139,20 @@ public class Config {
         coalDustCompression = config.get("ic2", "coalDustCompression", true).getBoolean(true);
     }
 
+    public static void blockConfig(Configuration config) {
+        config.getCategory("blocks");
+        if (config.get("blocks", "autoCrafterID", 2500).getInt() > 0) {
+            autoCrafterID = config.get("blocks", "autoCrafterID", 2500).getInt();
+        }
+    }
+
     public static void initConfig(Configuration config) {
         config.load();
         craftingConfig(config);
         uncraftingConfig(config);
         smeltingConfig(config);
         IC2Config(config);
+        blockConfig(config);
         config.save();
     }
 }

@@ -5,10 +5,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class EventHandler {
+public class EventListener {
 
     public static void setupEventListener() {
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+        MinecraftForge.EVENT_BUS.register(new EventListener());
     }
 
     @ForgeSubscribe
