@@ -1,7 +1,9 @@
 package de.keridos.utilityrecipes.data;
 
+import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import de.keridos.utilityrecipes.UtilityRecipes;
 import de.keridos.utilityrecipes.lib.Reference;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.block.Block;
@@ -9,6 +11,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -62,5 +65,13 @@ public class autoCrafter extends BlockContainer {
         } else {
             return sideIcon;
         }
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+        if (!world.isRemote) {
+            FMLNetworkHandler.openGui(player, UtilityRecipes.instance, 0, world, x, y, z);
+        }
+        return true;
     }
 }
