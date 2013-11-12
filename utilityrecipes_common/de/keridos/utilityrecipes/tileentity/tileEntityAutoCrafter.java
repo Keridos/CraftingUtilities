@@ -2,7 +2,6 @@ package de.keridos.utilityrecipes.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
@@ -13,23 +12,8 @@ import net.minecraft.tileentity.TileEntity;
  * Time: 17:52
  * To change this template use File | Settings | File Templates.
  */
-public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISidedInventory {
+public class TileEntityAutoCrafter extends TileEntity implements IInventory {
     private ItemStack[] inventory;
-
-    @Override
-    public int[] getAccessibleSlotsFromSide(int var1) {
-        return new int[0];  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
-    }
-
-    @Override
-    public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
-    }
 
     @Override
     public int getSizeInventory() {
@@ -74,7 +58,7 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
 
     @Override
     public String getInvName() {
-        return "Auto Crafter";
+        return "AutoCrafter";
     }
 
     @Override
@@ -94,18 +78,18 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
 
     @Override
     public void openChest() {
-// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void closeChest() {
-// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        return true;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
