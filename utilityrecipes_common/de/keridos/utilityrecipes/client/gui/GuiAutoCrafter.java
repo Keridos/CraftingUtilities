@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
  * To change this template use File | Settings | File Templates.
  */
 public class GuiAutoCrafter extends GuiContainer {
-    public static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "textures/gui/autocrafter.png");
+    public static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID.toLowerCase(), "textures/gui/autocrafter2.png");
 
     public GuiAutoCrafter(InventoryPlayer invPlayer, TileEntityAutoCrafter entity) {
         super(new ContainerAutoCrafter(invPlayer, entity));
