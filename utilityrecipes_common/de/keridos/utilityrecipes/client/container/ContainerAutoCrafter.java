@@ -1,5 +1,7 @@
 package de.keridos.utilityrecipes.client.container;
 
+import de.keridos.utilityrecipes.core.SlotOutput;
+import de.keridos.utilityrecipes.core.SlotPhantom;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -21,18 +23,23 @@ public class ContainerAutoCrafter extends Container {
         this.autoCrafter = entity;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 9; x++) {
-                this.addSlotToContainer(new Slot(invPlayer, 9 + x + y * 9, 8 + x * 18, 132 + y * 18));
+                this.addSlotToContainer(new Slot(invPlayer, 9 + x + y * 9, 8 + x * 18, 131 + y * 18));
             }
         }
         for (int x = 0; x < 9; x++) {
-            this.addSlotToContainer(new Slot(invPlayer, x, 8 + x * 18, 190));
+            this.addSlotToContainer(new Slot(invPlayer, x, 8 + x * 18, 189));
         }
         for (int y = 0; y < 2; y++) {
             for (int x = 0; x < 9; x++) {
                 this.addSlotToContainer(new Slot(entity, x + y * 9, 8 + x * 18, 82 + y * 18));
             }
         }
-
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                this.addSlotToContainer(new SlotPhantom(entity, 18 + x + y * 3, 30 + x * 18, 17 + y * 18));
+            }
+        }
+        this.addSlotToContainer(new SlotOutput(entity, 27, 124, 35));
     }
 
     @Override

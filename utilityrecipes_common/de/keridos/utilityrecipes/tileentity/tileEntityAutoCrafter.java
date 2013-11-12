@@ -18,7 +18,7 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory {
     private ItemStack[] inventory;
 
     public TileEntityAutoCrafter() {
-        inventory = new ItemStack[18];
+        inventory = new ItemStack[28];
     }
 
     @Override
@@ -35,11 +35,13 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory {
     public ItemStack decrStackSize(int slot, int count) {
         ItemStack itemstack = getStackInSlot(slot);
         if (itemstack != null) {
-            if (itemstack.stackSize <= count) {
-                setInventorySlotContents(slot, null);
-            } else {
-                itemstack = itemstack.splitStack(count);
-                onInventoryChanged();
+            if (!((slot >= 18) && (slot <= 26))) {
+                if (itemstack.stackSize <= count) {
+                    setInventorySlotContents(slot, null);
+                } else {
+                    itemstack = itemstack.splitStack(count);
+                    onInventoryChanged();
+                }
             }
         }
         return itemstack;
