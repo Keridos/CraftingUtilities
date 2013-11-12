@@ -2,10 +2,8 @@ package de.keridos.utilityrecipes.data;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import de.keridos.utilityrecipes.lib.GenericBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
 /**
@@ -15,18 +13,20 @@ import net.minecraftforge.common.MinecraftForge;
  * Time: 04:00
  * To change this template use File | Settings | File Templates.
  */
+
 public class Blocks {
-    public static Block autoCrafter;
+    public static Block blockAutoCrafter;
 
     public static void setupBlocks() {
-        autoCrafter = new GenericBlock(Config.autoCrafterID, Material.wood).setHardness(0.5F).setStepSound(
-                Block.soundWoodFootstep).setUnlocalizedName("autoCrafter").setCreativeTab(CreativeTabs.tabBlock);
+        if (Config.autoCrafterID > 0) {
+            blockAutoCrafter = new autoCrafter(Config.autoCrafterID, Material.wood);
+        }
 
     }
 
     public static void registerBlocks() {
-        GameRegistry.registerBlock(autoCrafter, "autoCrafter");
-        LanguageRegistry.addName(autoCrafter, "Auto Crafter");
-        MinecraftForge.setBlockHarvestLevel(autoCrafter, "axe", 0);
+        GameRegistry.registerBlock(blockAutoCrafter, "blockAutoCrafter");
+        LanguageRegistry.addName(blockAutoCrafter, "Auto Crafter");
+        MinecraftForge.setBlockHarvestLevel(blockAutoCrafter, "axe", 0);
     }
 }

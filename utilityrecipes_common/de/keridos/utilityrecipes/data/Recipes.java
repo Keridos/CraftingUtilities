@@ -224,6 +224,15 @@ public class Recipes {
         }
     }
 
+    private static void registerBlockRecipes() {
+        if (Config.autoCrafterID > 0) {
+            CraftingManager.getInstance().getRecipeList().add(
+                    new ShapedOreRecipe(new ItemStack(Blocks.blockAutoCrafter, 1), "IPI", "PWP", "LRL", 'I', new ItemStack(Item.ingotIron),
+                            'P', new ItemStack(Block.pistonBase), 'W', new ItemStack(Block.workbench), 'L', new ItemStack(Block.planks),
+                            'R', new ItemStack(Block.blockRedstone)));
+        }
+    }
+
     public static void registerOreRecipes(String ItemName, ItemStack item) {
         if ((Config.coalDustCompression) && (ModCompatability.IC2Loaded) && (ItemName.equals("dustCoal"))) {
             if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
@@ -241,5 +250,6 @@ public class Recipes {
         if (ModCompatability.IC2Loaded) {
             registerIC2Recipes();
         }
+        registerBlockRecipes();
     }
 }
