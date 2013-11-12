@@ -27,7 +27,7 @@ public class GuiAutoCrafter extends GuiContainer {
     @Override
     public void drawGuiContainerBackgroundLayer(float f, int j, int i) {
         GL11.glColor4f(1F, 1F, 1F, 1F);
-        this.mc.renderEngine.bindTexture(texture);
+        mc.renderEngine.bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
     }
 }
