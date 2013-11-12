@@ -8,4 +8,11 @@ package de.keridos.utilityrecipes.core;
  * To change this template use File | Settings | File Templates.
  */
 public class CommonProxy {
+    public void initRenderers() {
+
+    }
+
+    public void initSounds() {
+
+    }
 }

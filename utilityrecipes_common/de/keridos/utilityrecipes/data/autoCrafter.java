@@ -3,13 +3,12 @@ package de.keridos.utilityrecipes.data;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.keridos.utilityrecipes.lib.Reference;
-import de.keridos.utilityrecipes.tileentity.tileEntityAutoCrafter;
+import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -23,8 +22,7 @@ import net.minecraft.world.World;
  * To change this template use File | Settings | File Templates.
  */
 public class autoCrafter extends BlockContainer {
-    private ItemStack[] inventory;
-    private ItemStack output;
+
 
     public autoCrafter(int id, Material material) {
         super(id, material);
@@ -36,7 +34,7 @@ public class autoCrafter extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return new tileEntityAutoCrafter();
+        return new TileEntityAutoCrafter();
     }
 
 
@@ -45,23 +43,22 @@ public class autoCrafter extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public static Icon sideIcon;
     @SideOnly(Side.CLIENT)
-    public static Icon frontIcon;
+    public static Icon botIcon;
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister icon) {
         topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "autocrafter_top");
-
         sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "autocrafter_side");
-        frontIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "autocrafter_front");
+        botIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "autocrafter_bot");
     }
 
     @Override
     public Icon getIcon(int side, int meta) {
-        if (side == 0 || side == 1) {
+        if (side == 0) {
+            return botIcon;
+        } else if (side == 1) {
             return topIcon;
-        } else if (side == 2) {
-            return frontIcon;
         } else {
             return sideIcon;
         }

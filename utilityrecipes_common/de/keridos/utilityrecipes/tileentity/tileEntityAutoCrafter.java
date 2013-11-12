@@ -13,8 +13,8 @@ import net.minecraft.tileentity.TileEntity;
  * Time: 17:52
  * To change this template use File | Settings | File Templates.
  */
-public class tileEntityAutoCrafter extends TileEntity implements IInventory, ISidedInventory {
-
+public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISidedInventory {
+    private ItemStack[] inventory;
 
     @Override
     public int[] getAccessibleSlotsFromSide(int var1) {
@@ -33,55 +33,63 @@ public class tileEntityAutoCrafter extends TileEntity implements IInventory, ISi
 
     @Override
     public int getSizeInventory() {
-// TODO Auto-generated method stub
-        return 0;
+        return inventory.length;
     }
 
     @Override
     public ItemStack getStackInSlot(int i) {
-// TODO Auto-generated method stub
-        return null;
+        return inventory[i];
     }
 
     @Override
-    public ItemStack decrStackSize(int i, int j) {
-// TODO Auto-generated method stub
-        return null;
+    public ItemStack decrStackSize(int slot, int count) {
+        ItemStack itemstack = getStackInSlot(slot);
+        if (itemstack != null) {
+            if (itemstack.stackSize <= count) {
+                setInventorySlotContents(slot, null);
+            } else {
+                itemstack = itemstack.splitStack(count);
+                onInventoryChanged();
+            }
+        }
+        return itemstack;
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int i) {
-// TODO Auto-generated method stub
-        return null;
+    public ItemStack getStackInSlotOnClosing(int slot) {
+        ItemStack itemstack = getStackInSlot(slot);
+        setInventorySlotContents(slot, null);
+        return itemstack;
     }
 
     @Override
-    public void setInventorySlotContents(int i, ItemStack itemstack) {
-// TODO Auto-generated method stub
+    public void setInventorySlotContents(int slot, ItemStack itemstack) {
+        inventory[slot] = itemstack;
 
+        if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
+            itemstack.stackSize = getInventoryStackLimit();
+        }
+        onInventoryChanged();
     }
 
     @Override
     public String getInvName() {
-// TODO Auto-generated method stub
-        return null;
+        return "Auto Crafter";
     }
 
     @Override
     public boolean isInvNameLocalized() {
-// TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     @Override
     public int getInventoryStackLimit() {
-// TODO Auto-generated method stub
-        return 0;
+        return 64;
     }
 
     @Override
-    public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    public boolean isUseableByPlayer(EntityPlayer player) {
+        return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64;
     }
 
     @Override
