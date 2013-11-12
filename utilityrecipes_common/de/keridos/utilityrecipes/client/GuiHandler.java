@@ -1,6 +1,8 @@
 package de.keridos.utilityrecipes.client;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import de.keridos.utilityrecipes.UtilityRecipes;
 import de.keridos.utilityrecipes.client.gui.GuiAutoCrafter;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +17,11 @@ import net.minecraft.world.World;
  * To change this template use File | Settings | File Templates.
  */
 public class GuiHandler implements IGuiHandler {
+
+    public GuiHandler() {
+        NetworkRegistry.instance().registerGuiHandler(UtilityRecipes.instance, this);
+    }
+
     @Override
     public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
         TileEntity entity = world.getBlockTileEntity(x, y, z);

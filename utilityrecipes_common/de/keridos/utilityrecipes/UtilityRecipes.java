@@ -38,9 +38,9 @@ public class UtilityRecipes {
     public void init(FMLInitializationEvent event) {
         proxy.initRenderers();
         proxy.initSounds();
+        new GuiHandler();
         Blocks.registerBlocks();
         Blocks.registerTileEntities();
-        new GuiHandler();
     }
 
     @EventHandler
