@@ -2,6 +2,7 @@ package de.keridos.utilityrecipes.data;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,5 +29,9 @@ public class Blocks {
         GameRegistry.registerBlock(blockAutoCrafter, "blockAutoCrafter");
         LanguageRegistry.addName(blockAutoCrafter, "Auto Crafter");
         MinecraftForge.setBlockHarvestLevel(blockAutoCrafter, "axe", 0);
+    }
+
+    public static void registerTileEntities() {
+        GameRegistry.registerTileEntity(TileEntityAutoCrafter.class, "utilityrecipes_autocrafter");
     }
 }

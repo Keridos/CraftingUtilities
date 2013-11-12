@@ -20,14 +20,14 @@ public class GuiAutoCrafter extends GuiContainer {
 
     public GuiAutoCrafter(InventoryPlayer invPlayer, TileEntityAutoCrafter entity) {
         super(new ContainerAutoCrafter(invPlayer, entity));
-        xSize = 176;
-        ySize = 165;
+        xSize = 256;
+        ySize = 256;
     }
 
     @Override
     public void drawGuiContainerBackgroundLayer(float f, int j, int i) {
         GL11.glColor4f(1F, 1F, 1F, 1F);
-        mc.renderEngine.bindTexture(texture);
+        this.mc.renderEngine.bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
     }
 }

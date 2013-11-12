@@ -20,7 +20,7 @@ public class ContainerAutoCrafter extends Container {
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer entityplayer) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    public boolean canInteractWith(EntityPlayer player) {
+        return autoCrafter.isUseableByPlayer(player);  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
