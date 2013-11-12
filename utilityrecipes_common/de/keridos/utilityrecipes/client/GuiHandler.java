@@ -3,6 +3,7 @@ package de.keridos.utilityrecipes.client;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import de.keridos.utilityrecipes.UtilityRecipes;
+import de.keridos.utilityrecipes.client.container.ContainerAutoCrafter;
 import de.keridos.utilityrecipes.client.gui.GuiAutoCrafter;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +30,7 @@ public class GuiHandler implements IGuiHandler {
         switch (id) {
             case 0:
                 if (entity != null && entity instanceof TileEntityAutoCrafter) {
-                    return new GuiAutoCrafter(player.inventory, (TileEntityAutoCrafter) entity);
+                    return new ContainerAutoCrafter(player.inventory, (TileEntityAutoCrafter) entity);
                 } else {
                     return null;
                 }
