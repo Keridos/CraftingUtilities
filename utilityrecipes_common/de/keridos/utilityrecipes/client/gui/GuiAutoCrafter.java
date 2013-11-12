@@ -20,8 +20,8 @@ public class GuiAutoCrafter extends GuiContainer {
 
     public GuiAutoCrafter(InventoryPlayer invPlayer, TileEntityAutoCrafter entity) {
         super(new ContainerAutoCrafter(invPlayer, entity));
-        xSize = 256;
-        ySize = 256;
+        xSize = 176;
+        ySize = 213;
     }
 
     @Override
