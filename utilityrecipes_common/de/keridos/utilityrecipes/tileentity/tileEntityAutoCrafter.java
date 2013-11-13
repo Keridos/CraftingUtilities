@@ -123,7 +123,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
             output_stacksize = getStackInSlot(27).stackSize;
         }
         result = result.copy();
-        if (output_stacksize + result.stackSize < 64) {
+        if (output_stacksize + result.stackSize <= 64) {
             for (i = 0; i < 9; i++) {
                 for (j = 0; j < 18; j++) {
                     if (craftMatrix.getStackInSlot(i) == null) {
