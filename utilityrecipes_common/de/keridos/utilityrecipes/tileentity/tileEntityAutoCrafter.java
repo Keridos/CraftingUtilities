@@ -25,6 +25,8 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     public InventoryCrafting craftMatrix = new LocalInventoryCrafting();
     private ItemStack[] inventory;
     private SlotPhantom craftSlot;
+    int timeout = 7;
+    long[] timedifference = {0, 0};
 
     public TileEntityAutoCrafter() {
         inventory = new ItemStack[28];
@@ -32,11 +34,12 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
 
     @Override
     public int[] getAccessibleSlotsFromSide(int par1) {
-        int[] slots = new int[18];
+        int[] slots = new int[19];
         int i;
         for (i = 0; i < 18; i++) {
             slots[i] = i;
         }
+        slots[18] = 27;
         return slots;
     }
 
@@ -63,6 +66,16 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
             craftMatrix.setInventorySlotContents(i, stack);
         }
         return CraftingHelper.findMatchingRecipe(craftMatrix, worldObj);
+    }
+
+    private boolean checkTimeout() {
+        timedifference[1] = timedifference[0];
+        timedifference[0] = getWorldObj().getWorldTime();
+        if (timedifference[0] - timedifference[1] <= timeout) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean checkResources() {
@@ -94,7 +107,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
         int j;
         int output_stacksize = 0;
         IRecipe recipe = findRecipe();
-        if (recipe == null) {
+        if (recipe == null || checkTimeout()) {
             return;
         }
         ItemStack result = recipe.getCraftingResult(craftMatrix);
