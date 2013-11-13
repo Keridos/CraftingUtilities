@@ -141,8 +141,8 @@ public class Config {
 
     public static void blockConfig(Configuration config) {
         config.getCategory("blocks");
-        if (config.get("blocks", "autoCrafterID", 2500).getInt() > 0) {
-            autoCrafterID = config.get("blocks", "autoCrafterID", 2500).getInt();
+        if (config.get("blocks", "autoCrafterID", 3974).getInt() > 0) {
+            autoCrafterID = config.get("blocks", "autoCrafterID", 3974).getInt();
         }
     }
 
