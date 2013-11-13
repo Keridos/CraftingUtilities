@@ -30,6 +30,6 @@ public class SlotPhantom extends Slot implements IPhantomSlot {
 
     @Override
     public boolean canTakeStack(EntityPlayer par1EntityPlayer) {
-        return false;
+        return true;
     }
 }
