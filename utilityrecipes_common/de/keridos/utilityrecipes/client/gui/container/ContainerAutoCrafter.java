@@ -1,7 +1,7 @@
-package de.keridos.utilityrecipes.client.container;
+package de.keridos.utilityrecipes.client.gui.container;
 
-import de.keridos.utilityrecipes.core.SlotOutput;
-import de.keridos.utilityrecipes.core.SlotPhantom;
+import de.keridos.utilityrecipes.client.gui.slots.SlotOutput;
+import de.keridos.utilityrecipes.client.gui.slots.SlotPhantom;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

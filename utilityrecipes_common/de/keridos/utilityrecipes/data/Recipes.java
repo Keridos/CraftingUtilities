@@ -1,5 +1,6 @@
 package de.keridos.utilityrecipes.data;
 
+import de.keridos.utilityrecipes.blocks.Blocks;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import ic2.api.recipe.RecipeInputItemStack;
 import net.minecraft.block.Block;

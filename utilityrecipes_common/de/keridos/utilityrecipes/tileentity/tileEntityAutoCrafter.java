@@ -1,7 +1,7 @@
 package de.keridos.utilityrecipes.tileentity;
 
-import de.keridos.utilityrecipes.core.SlotPhantom;
-import de.keridos.utilityrecipes.data.CraftingHelper;
+import de.keridos.utilityrecipes.client.gui.slots.SlotPhantom;
+import de.keridos.utilityrecipes.util.CraftingHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
@@ -218,13 +218,11 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
 
     @Override
     public void openChest() {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void closeChest() {
-        // TODO Auto-generated method stub
 
     }
 

@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.core;
+package de.keridos.utilityrecipes.client.gui.slots;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

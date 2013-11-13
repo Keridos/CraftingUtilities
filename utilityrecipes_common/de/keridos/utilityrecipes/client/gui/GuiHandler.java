@@ -1,10 +1,9 @@
-package de.keridos.utilityrecipes.client;
+package de.keridos.utilityrecipes.client.gui;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import de.keridos.utilityrecipes.UtilityRecipes;
-import de.keridos.utilityrecipes.client.container.ContainerAutoCrafter;
-import de.keridos.utilityrecipes.client.gui.GuiAutoCrafter;
+import de.keridos.utilityrecipes.client.gui.container.ContainerAutoCrafter;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

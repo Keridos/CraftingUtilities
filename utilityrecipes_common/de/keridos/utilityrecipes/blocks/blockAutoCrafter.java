@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.data;
+package de.keridos.utilityrecipes.blocks;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -24,11 +24,11 @@ import net.minecraft.world.World;
  * Time: 17:06
  * To change this template use File | Settings | File Templates.
  */
-public class autoCrafter extends BlockContainer {
+public class BlockAutoCrafter extends BlockContainer {
     private boolean powered = false;
     private boolean was_powered = false;
 
-    public autoCrafter(int id, Material material) {
+    public BlockAutoCrafter(int id, Material material) {
         super(id, material);
         setHardness(0.5F);
         setStepSound(Block.soundWoodFootstep);

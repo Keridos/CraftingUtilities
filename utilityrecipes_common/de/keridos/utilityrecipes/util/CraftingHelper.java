@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.data;
+package de.keridos.utilityrecipes.util;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;

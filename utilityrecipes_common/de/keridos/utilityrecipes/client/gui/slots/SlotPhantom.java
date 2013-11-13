@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.core;
+package de.keridos.utilityrecipes.client.gui.slots;
 
 /**
  * Created with IntelliJ IDEA.

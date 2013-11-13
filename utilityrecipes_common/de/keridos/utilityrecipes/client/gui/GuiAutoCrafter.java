@@ -1,6 +1,6 @@
 package de.keridos.utilityrecipes.client.gui;
 
-import de.keridos.utilityrecipes.client.container.ContainerAutoCrafter;
+import de.keridos.utilityrecipes.client.gui.container.ContainerAutoCrafter;
 import de.keridos.utilityrecipes.lib.Reference;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.client.gui.inventory.GuiContainer;
