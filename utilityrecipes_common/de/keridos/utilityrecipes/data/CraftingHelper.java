@@ -11,6 +11,8 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
+// Code from Buildcraft, I (Keridos) did not write this on my own.
+
 public class CraftingHelper {
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static IRecipe findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World) {

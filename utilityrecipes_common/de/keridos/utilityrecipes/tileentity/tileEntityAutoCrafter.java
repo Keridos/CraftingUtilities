@@ -4,7 +4,6 @@ import de.keridos.utilityrecipes.core.SlotPhantom;
 import de.keridos.utilityrecipes.data.CraftingHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -21,7 +20,7 @@ import java.util.logging.Logger;
  * Time: 17:52
  * To change this template use File | Settings | File Templates.
  */
-public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISidedInventory {
+public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory {
     private static Logger LOGGER = Logger.getLogger("InfoLogging");
     public InventoryCrafting craftMatrix = new LocalInventoryCrafting();
     private ItemStack[] inventory;
@@ -32,28 +31,36 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int var1) {
-        return new int[0];  //To change body of implemented methods use File | Settings | File Templates.
+    public int[] getAccessibleSlotsFromSide(int par1) {
+        int[] slots = new int[18];
+        int i;
+        for (i = 0; i < 18; i++) {
+            slots[i] = i;
+        }
+        return slots;
     }
 
     @Override
     public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if (i <= 18) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+        if (i == 27) {
+            return true;
+        }
+        return false;
     }
 
     public IRecipe findRecipe() {
         int i;
         for (i = 0; i < 9; i++) {
             ItemStack stack = getStackInSlot(i + 18);
-            if (!(stack == null)) {
-                craftMatrix.setInventorySlotContents(i, stack);
-                continue;
-            }
+            craftMatrix.setInventorySlotContents(i, stack);
         }
         return CraftingHelper.findMatchingRecipe(craftMatrix, worldObj);
     }
@@ -67,9 +74,11 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
                 if (craftMatrix.getStackInSlot(i) == null) {
                     recipe_completion++;
                     break;
-                } else if (craftMatrix.getStackInSlot(i) == getStackInSlot(j) && (!(craftMatrix.getStackInSlot(i) == null))) {
-                    recipe_completion++;
-                    break;
+                } else if (getStackInSlot(j) != null) {
+                    if (craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem()) {
+                        recipe_completion++;
+                        break;
+                    }
                 }
             }
         }
@@ -84,7 +93,6 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
         int i;
         int j;
         int output_stacksize = 0;
-        LOGGER.severe("craftRun");
         IRecipe recipe = findRecipe();
         if (recipe == null) {
             return;
@@ -95,7 +103,6 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
         }
         if (!checkResources()) {
             return;
-
         }
         if (getStackInSlot(27) == null) {
             output_stacksize = 0;
@@ -106,18 +113,27 @@ public class TileEntityAutoCrafter extends TileEntity implements IInventory, ISi
         if (output_stacksize + result.stackSize < 64) {
             for (i = 0; i < 9; i++) {
                 for (j = 0; j < 18; j++) {
-                    if (craftMatrix.getStackInSlot(i) == getStackInSlot(j) && (!(craftMatrix.getStackInSlot(i) == null))) {
-                        getStackInSlot(j).stackSize--;
+                    if (craftMatrix.getStackInSlot(i) == null) {
                         break;
+                    } else if (getStackInSlot(j) != null) {
+                        if ((craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem())) {
+                            if (getStackInSlot(j).stackSize > 2) {
+                                getStackInSlot(j).stackSize--;
+                            } else {
+                                setInventorySlotContents(j, null);
+                            }
+                            break;
+                        }
                     }
                 }
             }
             if (!(output_stacksize == 0)) {
                 if (result.getItem() == getStackInSlot(27).getItem()) {
+                    setInventorySlotContents(27, null);
                     setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize + output_stacksize));
                 }
             } else {
-                setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize + output_stacksize));
+                setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize));
             }
             return;
         } else {
