@@ -4,7 +4,7 @@
 
 
     <!-- Versions -->
-    <property name="build.ver" value="0.1.1"/>
+    <property name="build.ver" value="0.2.0"/>
     <property name="fullversion" value="${build.ver}"/>
     <property name="mcp.version" value="811"/>
     <property name="forgebuild" value="916"/>

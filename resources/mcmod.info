@@ -2,8 +2,8 @@
 {
   "modid": "UtilityRecipes",
   "name": "Utility Recipes",
-  "description": "Adds a bunch of handy recipes.",
-  "version": "0.1.1",
+  "description": "Adds a bunch of handy recipes. And an autocrafter.",
+  "version": "0.2.0",
   "mcversion": "1.6.4",
   "url": "",
   "updateUrl": "",
