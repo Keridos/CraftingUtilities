@@ -1,6 +1,5 @@
 package de.keridos.utilityrecipes.tileentity;
 
-import de.keridos.utilityrecipes.client.gui.slots.SlotPhantom;
 import de.keridos.utilityrecipes.util.CraftingHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -12,34 +11,27 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.logging.Logger;
-
 /**
  * Created with IntelliJ IDEA.
  * Date: 12.11.13
  * Time: 17:52
  * To change this template use File | Settings | File Templates.
  */
-public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory {
-    private static Logger LOGGER = Logger.getLogger("InfoLogging");
+public class TileEntityCraftingStation extends TileEntity implements ISidedInventory {
     public InventoryCrafting craftMatrix = new LocalInventoryCrafting();
     private ItemStack[] inventory;
-    private SlotPhantom craftSlot;
-    int timeout = 7;
-    long[] timedifference = {0, 0};
 
-    public TileEntityAutoCrafter() {
+    public TileEntityCraftingStation() {
         inventory = new ItemStack[28];
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int par1) {
-        int[] slots = new int[19];
+        int[] slots = new int[18];
         int i;
         for (i = 0; i < 18; i++) {
             slots[i] = i;
         }
-        slots[18] = 27;
         return slots;
     }
 
@@ -53,9 +45,6 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
 
     @Override
     public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-        if (i == 27) {
-            return true;
-        }
         return false;
     }
 
@@ -66,89 +55,6 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
             craftMatrix.setInventorySlotContents(i, stack);
         }
         return CraftingHelper.findMatchingRecipe(craftMatrix, worldObj);
-    }
-
-    private boolean checkTimeout() {
-        timedifference[1] = timedifference[0];
-        timedifference[0] = getWorldObj().getWorldTime();
-        if (timedifference[0] - timedifference[1] <= timeout) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean checkResources() {
-        int i;
-        int j;
-        int recipe_completion = 0;
-        for (i = 0; i < 9; i++) {
-            for (j = 0; j < 18; j++) {
-                if (craftMatrix.getStackInSlot(i) == null) {
-                    recipe_completion++;
-                    break;
-                } else if (getStackInSlot(j) != null) {
-                    if (craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem()) {
-                        recipe_completion++;
-                        break;
-                    }
-                }
-            }
-        }
-        if (recipe_completion == 9) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void craftRun() {
-        int i;
-        int j;
-        int output_stacksize = 0;
-        IRecipe recipe = findRecipe();
-        if (recipe == null || checkTimeout()) {
-            return;
-        }
-        ItemStack result = recipe.getCraftingResult(craftMatrix);
-        if (result == null || !checkResources()) {
-            return;
-        }
-        if (getStackInSlot(27) == null) {
-            output_stacksize = 0;
-        } else {
-            output_stacksize = getStackInSlot(27).stackSize;
-        }
-        result = result.copy();
-        if (output_stacksize + result.stackSize <= 64) {
-            for (i = 0; i < 9; i++) {
-                for (j = 0; j < 18; j++) {
-                    if (craftMatrix.getStackInSlot(i) == null) {
-                        break;
-                    } else if (getStackInSlot(j) != null) {
-                        if ((craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem())) {
-                            if (getStackInSlot(j).stackSize > 2) {
-                                getStackInSlot(j).stackSize--;
-                            } else {
-                                setInventorySlotContents(j, null);
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-            if (!(output_stacksize == 0)) {
-                if (result.getItem() == getStackInSlot(27).getItem()) {
-                    setInventorySlotContents(27, null);
-                    setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize + output_stacksize));
-                }
-            } else {
-                setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize));
-            }
-            return;
-        } else {
-            return;
-        }
     }
 
     @Override

@@ -1,11 +1,12 @@
 package de.keridos.utilityrecipes.client.gui.container;
 
-import de.keridos.utilityrecipes.client.gui.slots.SlotOutput;
+import de.keridos.utilityrecipes.client.gui.slots.SlotExtendedCrafting;
 import de.keridos.utilityrecipes.client.gui.slots.SlotPhantom;
 import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
@@ -18,6 +19,9 @@ import net.minecraft.item.ItemStack;
  */
 public class ContainerAutoCrafter extends Container {
     private TileEntityAutoCrafter autoCrafter;
+    private IInventory craftMatrix;
+    private IInventory resources;
+    private IInventory result;
 
     public ContainerAutoCrafter(InventoryPlayer invPlayer, TileEntityAutoCrafter entity) {
         this.autoCrafter = entity;
@@ -37,9 +41,10 @@ public class ContainerAutoCrafter extends Container {
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
                 this.addSlotToContainer(new SlotPhantom(entity, 18 + x + y * 3, 30 + x * 18, 17 + y * 18));
+                craftMatrix.setInventorySlotContents((x + y * 3), this.getSlot(18 + x + y * 3).getStack());
             }
         }
-        this.addSlotToContainer(new SlotOutput(entity, 27, 124, 35));
+        this.addSlotToContainer(new SlotExtendedCrafting(invPlayer.player, craftMatrix, result, resources, 27, 124, 35));
     }
 
     @Override
