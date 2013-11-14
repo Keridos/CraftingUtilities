@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.data;
+package de.keridos.utilityrecipes.blocks;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -24,16 +24,30 @@ import net.minecraft.world.World;
  * Time: 17:06
  * To change this template use File | Settings | File Templates.
  */
-public class autoCrafter extends BlockContainer {
+public class BlockAutoCrafter extends BlockContainer {
+    private boolean powered = false;
+    private boolean was_powered = false;
 
-
-    public autoCrafter(int id, Material material) {
+    public BlockAutoCrafter(int id, Material material) {
         super(id, material);
         setHardness(0.5F);
         setStepSound(Block.soundWoodFootstep);
         setUnlocalizedName("blockAutoCrafter");
         setCreativeTab(CreativeTabs.tabBlock);
     }
+
+    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
+        if (!par1World.isRemote) {
+            if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4) && !this.was_powered) {
+                TileEntityAutoCrafter tile = (TileEntityAutoCrafter) par1World.getBlockTileEntity(par2, par3, par4);
+                tile.craftRun();
+                this.was_powered = true;
+            } else if (!par1World.isBlockIndirectlyGettingPowered(par2, par3, par4) && this.was_powered) {
+                this.was_powered = false;
+            }
+        }
+    }
+
 
     @Override
     public TileEntity createNewTileEntity(World world) {

@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.lib;
+package de.keridos.utilityrecipes.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -1,4 +1,4 @@
-package de.keridos.utilityrecipes.compatability;
+package de.keridos.utilityrecipes.core;
 
 import de.keridos.utilityrecipes.data.Recipes;
 import net.minecraftforge.common.MinecraftForge;
