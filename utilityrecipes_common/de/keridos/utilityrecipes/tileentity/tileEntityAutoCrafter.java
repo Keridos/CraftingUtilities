@@ -54,6 +54,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
         return false;
     }
 
+
     public IRecipe findRecipe() {
         int i;
         for (i = 0; i < 9; i++) {
@@ -135,10 +136,11 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
             if (!(output_stacksize == 0)) {
                 if (result.getItem() == getStackInSlot(27).getItem()) {
                     setInventorySlotContents(27, null);
-                    setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize + output_stacksize));
+                    setInventorySlotContents(27,
+                            new ItemStack(result.getItem(), result.stackSize + output_stacksize, result.getItemDamage()));
                 }
             } else {
-                setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize));
+                setInventorySlotContents(27, new ItemStack(result.getItem(), result.stackSize, result.getItemDamage()));
             }
             return;
         } else {
