@@ -2,7 +2,7 @@ package de.keridos.utilityrecipes.client.gui.container;
 
 import de.keridos.utilityrecipes.client.gui.slots.SlotCraftingGridPhantom;
 import de.keridos.utilityrecipes.client.gui.slots.SlotOutput;
-import de.keridos.utilityrecipes.tileentity.TileEntityAutoCrafter;
+import de.keridos.utilityrecipes.tileentity.TileEntityCraftingStation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -16,11 +16,11 @@ import net.minecraft.item.ItemStack;
  * Time: 20:10
  * To change this template use File | Settings | File Templates.
  */
-public class ContainerAutoCrafter extends Container {
-    private TileEntityAutoCrafter autoCrafter;
+public class ContainerCraftingStation extends Container {
+    private TileEntityCraftingStation craftingStation;
 
-    public ContainerAutoCrafter(InventoryPlayer invPlayer, TileEntityAutoCrafter entity) {
-        this.autoCrafter = entity;
+    public ContainerCraftingStation(InventoryPlayer invPlayer, TileEntityCraftingStation entity) {
+        this.craftingStation = entity;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 9; x++) {
                 this.addSlotToContainer(new Slot(invPlayer, 9 + x + y * 9, 8 + x * 18, 131 + y * 18));
@@ -68,10 +68,9 @@ public class ContainerAutoCrafter extends Container {
         return null;
     }
 
-
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        return autoCrafter.isUseableByPlayer(player);  //To change body of implemented methods use File | Settings | File Templates.
+        return craftingStation.isUseableByPlayer(player);  //To change body of implemented methods use File | Settings | File Templates.
     }
 
 

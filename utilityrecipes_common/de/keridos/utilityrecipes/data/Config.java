@@ -64,6 +64,7 @@ public class Config {
     public static boolean coalDustCompression;
 
     public static int autoCrafterID;
+    public static int craftingStationID;
 
     private static void craftingConfig(Configuration config) {
         config.getCategory("crafting");
@@ -141,9 +142,9 @@ public class Config {
 
     public static void blockConfig(Configuration config) {
         config.getCategory("blocks");
-        if (config.get("blocks", "autoCrafterID", 3974).getInt() > 0) {
-            autoCrafterID = config.get("blocks", "autoCrafterID", 3974).getInt();
-        }
+        config.addCustomCategoryComment("blocks", "Setting an ID to 0 will not register the block, nor its recipes.");
+        autoCrafterID = config.get("blocks", "autoCrafterID", 3974).getInt();
+        autoCrafterID = config.get("blocks", "autoCrafterID", 3975).getInt();
     }
 
     public static void initConfig(Configuration config) {

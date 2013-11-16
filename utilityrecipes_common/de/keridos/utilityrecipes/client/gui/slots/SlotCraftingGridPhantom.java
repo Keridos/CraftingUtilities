@@ -12,9 +12,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 
-public class SlotPhantom extends Slot implements IPhantomSlot {
+public class SlotCraftingGridPhantom extends Slot implements IPhantomSlot {
 
-    public SlotPhantom(IInventory iinventory, int slotIndex, int posX, int posY) {
+    public SlotCraftingGridPhantom(IInventory iinventory, int slotIndex, int posX, int posY) {
         super(iinventory, slotIndex, posX, posY);
     }
 

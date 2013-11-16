@@ -5,5 +5,5 @@ public class Reference {
     public static final String MOD_NAME = "Utility Recipes";
     public static final String VERSION = "0.1.1";
     public static final String CHANNEL = MOD_ID;
-    public static final String PROXY_LOCATION = "de.keridos.utilityrecipes.core";
+    public static final String PROXY_LOCATION = "de.keridos.utilityrecipes.core.proxy";
 }

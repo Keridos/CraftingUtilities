@@ -29,7 +29,7 @@ public class BlockCraftingStation extends BlockContainer {
         super(id, material);
         setHardness(0.5F);
         setStepSound(Block.soundWoodFootstep);
-        setUnlocalizedName("blockCraftingStation");
+        setUnlocalizedName("BlockCraftingStation");
         setCreativeTab(CreativeTabs.tabBlock);
     }
 
@@ -68,7 +68,7 @@ public class BlockCraftingStation extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            FMLNetworkHandler.openGui(player, UtilityRecipes.instance, 0, world, x, y, z);
+            FMLNetworkHandler.openGui(player, UtilityRecipes.instance, 1, world, x, y, z);
         }
         return true;
     }

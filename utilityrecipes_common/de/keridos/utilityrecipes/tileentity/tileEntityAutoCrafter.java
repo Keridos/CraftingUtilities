@@ -1,6 +1,5 @@
 package de.keridos.utilityrecipes.tileentity;
 
-import de.keridos.utilityrecipes.client.gui.slots.SlotPhantom;
 import de.keridos.utilityrecipes.util.CraftingHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -12,8 +11,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.logging.Logger;
-
 /**
  * Created with IntelliJ IDEA.
  * Date: 12.11.13
@@ -21,10 +18,8 @@ import java.util.logging.Logger;
  * To change this template use File | Settings | File Templates.
  */
 public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory {
-    private static Logger LOGGER = Logger.getLogger("InfoLogging");
     public InventoryCrafting craftMatrix = new LocalInventoryCrafting();
     private ItemStack[] inventory;
-    private SlotPhantom craftSlot;
     int timeout = 7;
     long[] timedifference = {0, 0};
 
