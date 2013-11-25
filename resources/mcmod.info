@@ -17,7 +17,7 @@
   "parent":"",
   "dependencies": [
     "arsmagica2"
-  ]
+  ] ,
   "useDependencyInformation":"true"
 }
 ]

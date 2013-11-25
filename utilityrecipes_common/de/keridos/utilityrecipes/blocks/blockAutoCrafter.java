@@ -45,11 +45,11 @@ public class BlockAutoCrafter extends BlockContainer {
 
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
         if (!par1World.isRemote) {
-            if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4) && !this.was_powered) {
+            if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4)) {
                 TileEntityAutoCrafter tile = (TileEntityAutoCrafter) par1World.getBlockTileEntity(par2, par3, par4);
                 tile.craftRun();
                 this.was_powered = true;
-            } else if (!par1World.isBlockIndirectlyGettingPowered(par2, par3, par4) && this.was_powered) {
+            } else if (!par1World.isBlockIndirectlyGettingPowered(par2, par3, par4)) {
                 this.was_powered = false;
             }
         }
