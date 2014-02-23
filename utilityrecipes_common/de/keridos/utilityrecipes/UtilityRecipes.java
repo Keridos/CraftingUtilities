@@ -11,6 +11,7 @@ import de.keridos.utilityrecipes.blocks.Blocks;
 import de.keridos.utilityrecipes.client.gui.GuiHandler;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import de.keridos.utilityrecipes.core.EventListener;
+import de.keridos.utilityrecipes.core.PacketHandler;
 import de.keridos.utilityrecipes.core.proxy.CommonProxy;
 import de.keridos.utilityrecipes.data.Config;
 import de.keridos.utilityrecipes.data.Recipes;
@@ -18,7 +19,7 @@ import de.keridos.utilityrecipes.lib.Reference;
 import net.minecraftforge.common.Configuration;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {Reference.CHANNEL})
+@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
 public class UtilityRecipes {
     @Mod.Instance(Reference.MOD_ID)
     public static UtilityRecipes instance;
