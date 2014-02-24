@@ -5,6 +5,9 @@ import de.keridos.utilityrecipes.blocks.Blocks;
 import de.keridos.utilityrecipes.compatability.ModCompatability;
 import ic2.api.recipe.RecipeInputItemStack;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -15,6 +18,41 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.ArrayList;
 
 public class Recipes {
+    private static class LocalInventoryCrafting extends InventoryCrafting {
+        private int inventoryWidth = 3;
+        private ItemStack[] stackList = new ItemStack[9];
+
+        public LocalInventoryCrafting() {
+            super(new Container() {
+                @Override
+                public boolean canInteractWith(EntityPlayer entityplayer) {
+                    return false;
+                }
+            }, 3, 3);
+        }
+
+        @Override
+        public void setInventorySlotContents(int slot, ItemStack itemstack) {
+            stackList[slot] = itemstack;
+        }
+
+        @Override
+        public ItemStack getStackInSlot(int par1) {
+            return par1 >= this.getSizeInventory() ? null : this.stackList[par1];
+        }
+
+        @Override
+        public ItemStack getStackInRowAndColumn(int par1, int par2) {
+            if (par1 >= 0 && par1 < this.inventoryWidth) {
+                int k = par1 + par2 * this.inventoryWidth;
+                return this.getStackInSlot(k);
+            } else {
+                return null;
+            }
+        }
+    }
+
+
     private static void registerCraftingRecipes() {
         if (Config.chiseledStoneBrickCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 0));
@@ -225,12 +263,17 @@ public class Recipes {
 
     public static void removeRecipes() {
         if (ModCompatability.AM2Loaded) {
-            RemoveRecipe(new ItemStack(Block.stoneBrick, 1, 3));
+            System.out.println("Attempting to fix Recipes overwritten by AM2");
+            LocalInventoryCrafting craftingGrid = new LocalInventoryCrafting();
+            craftingGrid.setInventorySlotContents(0, new ItemStack(Block.stoneBrick, 1, 0));
+            craftingGrid.setInventorySlotContents(1, new ItemStack(Block.stoneBrick, 1, 0));
+            craftingGrid.setInventorySlotContents(3, new ItemStack(Block.stoneBrick, 1, 0));
+            craftingGrid.setInventorySlotContents(4, new ItemStack(Block.stoneBrick, 1, 0));
+            RemoveRecipeByCraftingGrid(craftingGrid, new ItemStack(Block.stoneBrick, 1, 3));
         }
     }
 
     public static void initRecipes() {
-        removeRecipes();
         registerCraftingRecipes();
         if (!ModCompatability.GTLoaded) {
             registerSmeltingRecipes();
@@ -241,20 +284,39 @@ public class Recipes {
         registerBlockRecipes();
     }
 
-    static void RemoveRecipe(ItemStack resultItem) {
-        ItemStack recipeResult = null;
+    static void RemoveRecipeByOutput(ItemStack resultItem) {
+        ItemStack recipeResult;
         ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
 
         for (int scan = 0; scan < recipes.size(); scan++) {
             IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
             recipeResult = tmpRecipe.getRecipeOutput();
             if (recipeResult != null) {
-                if (recipeResult.itemID == resultItem.itemID && recipeResult.getItemDamage() == resultItem.getItemDamage()) {
-                    System.out.println("Removed Recipe: " + recipes.get(scan) + " ===> " + recipeResult);
+                if (recipeResult.itemID == resultItem.itemID && recipeResult.getItemDamage() == resultItem.getItemDamage() && recipeResult.stackSize == resultItem.stackSize) {
+                    System.out.println("Removed Recipes for " + recipeResult.getDisplayName() + " :" + recipes.get(scan) + " ===> " + recipeResult);
                     recipes.remove(scan);
                     scan--;
                 }
             }
+        }
+    }
+
+    static void RemoveRecipeByCraftingGrid(InventoryCrafting craftingGrid, ItemStack overriddenOutput) {
+        ItemStack recipeResult;
+        ArrayList recipes = (ArrayList) CraftingManager.getInstance().getRecipeList();
+
+        for (int scan = 0; scan < recipes.size(); scan++) {
+            IRecipe tmpRecipe = (IRecipe) recipes.get(scan);
+            recipeResult = tmpRecipe.getRecipeOutput();
+            if (recipeResult != null) {
+                if (tmpRecipe.matches(craftingGrid, null) && recipeResult.itemID == overriddenOutput.itemID && recipeResult.getItemDamage() == overriddenOutput.getItemDamage() && recipeResult.stackSize == overriddenOutput.stackSize) {
+                    System.out.println("UtilityRecipes Removed Recipe by CraftingGrid: " + recipes.get(scan) + " ===> " + recipeResult);
+                    recipes.remove(scan);
+                    scan--;
+                }
+
+            }
+
         }
     }
 }

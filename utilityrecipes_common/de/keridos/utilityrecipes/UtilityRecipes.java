@@ -20,6 +20,7 @@ import net.minecraftforge.common.Configuration;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
+
 public class UtilityRecipes {
     @Mod.Instance(Reference.MOD_ID)
     public static UtilityRecipes instance;
@@ -42,11 +43,13 @@ public class UtilityRecipes {
         new GuiHandler();
         Blocks.registerBlocks();
         Blocks.registerTileEntities();
+        ModCompatability.registerGTMicroblocks();
+        Recipes.initRecipes();
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        Recipes.initRecipes();
+        Recipes.removeRecipes();
     }
 
 

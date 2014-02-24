@@ -63,11 +63,13 @@ public class Config {
     public static boolean bronzeBootsSmelting;
     public static boolean coalDustCompression;
 
+    public static boolean addGTMicroblocks;
+    public static boolean overwriteConflictingRecipes;
+
     public static int autoCrafterID;
     public static int craftingStationID;
 
     private static void craftingConfig(Configuration config) {
-        config.getCategory("crafting");
         config.getCategory("crafting");
         chiseledStoneBrickCrafting = config.get("crafting", "chiseledStoneBrickCrafting", true).getBoolean(true);
         crackedStoneBrickCrafting = config.get("crafting", "crackedStoneBrickCrafting", true).getBoolean(true);
@@ -147,6 +149,14 @@ public class Config {
         autoCrafterID = config.get("blocks", "autoCrafterID", 3975).getInt();
     }
 
+    public static void featureConfig(Configuration config) {
+        config.getCategory("microblocks");
+        config.addCustomCategoryComment("microblocks", "Forge Multipart and Facades Support for Mods");
+        addGTMicroblocks = config.get("microblocks", "addGTMicroblocks", true).getBoolean(true);
+        config.getCategory("general");
+        overwriteConflictingRecipes = config.get("general", "overwriteConflictingRecipes", true).getBoolean(true);
+    }
+
     public static void initConfig(Configuration config) {
         config.load();
         craftingConfig(config);
@@ -154,6 +164,7 @@ public class Config {
         smeltingConfig(config);
         IC2Config(config);
         blockConfig(config);
+        featureConfig(config);
         config.save();
     }
 }

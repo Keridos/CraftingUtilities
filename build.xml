@@ -7,7 +7,7 @@
     <property name="build.ver" value="0.2.0"/>
     <property name="fullversion" value="${build.ver}"/>
     <property name="mcp.version" value="811"/>
-    <property name="forgebuild" value="916"/>
+    <property name="forgebuild" value="965"/>
     <property name="forge.version" value="1.6.4-9.11.1.${forgebuild}"/>
    
     <!-- Directories -->
@@ -25,7 +25,7 @@
 
     <!-- URLs -->
     <property name="forge.url"
-              value="http://files.minecraftforge.net/minecraftforge/minecraftforge-src-${forge.version}.zip"/>
+              value="http://files.minecraftforge.net/maven/net/minecraftforge/forge/${forge.version}/forge-${forge.version}-src.zip"/>
 
    <!-- Name -->
     <property name="package.meta-inf" value="META-INF"/>
@@ -36,7 +36,7 @@
     <condition property="forge-already-installed">
         <equals arg1="${forge.build.number}" arg2="${forgebuild}"/>
     </condition>
-    <available property="forge-exists" file="${download.dir}/minecraftforge-src-${forge.version}.zip"/>
+    <available property="forge-exists" file="${download.dir}/forge-${forge.version}-src.zip"/>
     <available property="already-compiled" file="${classes.dir}/net/utilityrecipes"/>
 
     <mkdir dir="${download.dir}"/>
@@ -84,6 +84,20 @@
                 <filter token="MOD_VERSION" value="${fullversion}"/>
             </filterset>
         </copy>
+        <delete dir="${mcpsrc.dir}/gregtechmod"/>
+        <copy todir="${mcpsrc.dir}/gregtechmod">
+            <fileset dir="../../source/GT API/gregtechmod"/>
+            <filterset>
+                <filter token="MOD_VERSION" value="${fullversion}"/>
+            </filterset>
+        </copy>
+        <delete dir="${mcpsrc.dir}/buildcraft"/>
+        <copy todir="${mcpsrc.dir}/buildcraft">
+            <fileset dir="../../source/BC API/buildcraft"/>
+            <filterset>
+                <filter token="MOD_VERSION" value="${fullversion}"/>
+            </filterset>
+        </copy>
         <delete dir="${mcpsrc.dir}/de"/>
         <copy todir="${mcpsrc.dir}/de">
             <fileset dir="${src.dir}/de"/>
@@ -124,7 +138,7 @@
 
         <unzip dest="${build.dir}">
             <fileset dir="${download.dir}">
-                <include name="minecraftforge-src-${forge.version}.zip"/>
+                <include name="forge-${forge.version}-src.zip"/>
             </fileset>
         </unzip>
 
@@ -173,8 +187,8 @@
             </classpath>
         </taskdef>
         <echo message="Downloading forge... "/>
-        <getMethod url="http://minecraft.ironhide.de/dev/minecraftforge-src-${forge.version}.zip"
-                   responseDataFile="${download.dir}/minecraftforge-src-${forge.version}.zip">
+        <getMethod url="${forge.url}"
+                   responseDataFile="${download.dir}/forge-${forge.version}-src.zip">
             <header name="User-Agent" value="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36"/>
         </getMethod>
     </target>
