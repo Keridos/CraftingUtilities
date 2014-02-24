@@ -98,6 +98,19 @@
                 <filter token="MOD_VERSION" value="${fullversion}"/>
             </filterset>
         </copy>
+        <delete dir="${mcpsrc.dir}/codechicken"/>
+        <copy todir="${mcpsrc.dir}/codechicken">
+            <fileset dir="../../source/Forge Multipart API/codechicken"/>
+            <filterset>
+                <filter token="MOD_VERSION" value="${fullversion}"/>
+            </filterset>
+        </copy>
+        <copy todir="${mcpsrc.dir}/codechicken">
+            <fileset dir="../../source/CodeChickenLib/codechicken"/>
+            <filterset>
+                <filter token="MOD_VERSION" value="${fullversion}"/>
+            </filterset>
+        </copy>
         <delete dir="${mcpsrc.dir}/de"/>
         <copy todir="${mcpsrc.dir}/de">
             <fileset dir="${src.dir}/de"/>
