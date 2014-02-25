@@ -2,6 +2,7 @@ package de.keridos.utilityrecipes;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -29,6 +30,8 @@ public class UtilityRecipes {
     private static EventListener EventHandler = EventListener.getInstance();
     private static Recipes RecipeHandler = Recipes.getInstance();
     private static Blocks BlockHandler = Blocks.getInstance();
+
+    @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".CommonProxy")
     public CommonProxy proxy = new CommonProxy();
 
     @EventHandler
