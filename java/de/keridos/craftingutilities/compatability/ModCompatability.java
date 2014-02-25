@@ -21,7 +21,8 @@ public class ModCompatability {
     public boolean BCLoaded;
     public boolean MFRLoaded;
 
-    private ModCompatability() {}
+    private ModCompatability() {
+    }
 
     public static ModCompatability getInstance() {
         if (instance == null) {
@@ -64,7 +65,7 @@ public class ModCompatability {
         registerMFRMicroblocks();
     }
 
-    public void registerGTMicroblocks() {
+    private void registerGTMicroblocks() {
         if (FMPLoaded && GTLoaded && Configuration.addGTMicroblocks) {
             for (int i = 0; i < 16; i++) {
                 BlockMicroMaterial.createAndRegister(GregTech_API.sBlockList[5], i);
@@ -101,7 +102,7 @@ public class ModCompatability {
         }
     }
 
-    public void registerMFRMicroblocks() {
+    private void registerMFRMicroblocks() {
         if (BCLoaded && MFRLoaded && Configuration.addMFRMicroblocks) {
             for (int i = 0; i < 11; i++) {
                 registerFacade(MineFactoryReloadedCore.factoryDecorativeBrickBlock.blockID, i);

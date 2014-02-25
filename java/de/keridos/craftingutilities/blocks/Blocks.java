@@ -20,10 +20,11 @@ import net.minecraftforge.common.MinecraftForge;
 public class Blocks {
     private static Blocks instance = null;
     private static Config Configuration = Config.getInstance();
-    public  Block blockAutoCrafter;
-    public  Block blockCraftingStation;
+    public Block blockAutoCrafter;
+    public Block blockCraftingStation;
 
-    private Blocks() {}
+    private Blocks() {
+    }
 
     public static Blocks getInstance() {
         if (instance == null) {
@@ -33,7 +34,7 @@ public class Blocks {
     }
 
 
-    public  void setupBlocks() {
+    public void setupBlocks() {
         if (Configuration.autoCrafterID > 0) {
             blockAutoCrafter = new BlockAutoCrafter(Configuration.autoCrafterID, Material.wood);
         }
@@ -42,7 +43,7 @@ public class Blocks {
         }
     }
 
-    public  void registerBlocks() {
+    public void registerBlocks() {
         if (Configuration.autoCrafterID > 0) {
             GameRegistry.registerBlock(blockAutoCrafter, "BlockAutoCrafter");
             LanguageRegistry.addName(blockAutoCrafter, "Auto Crafter");
@@ -55,7 +56,7 @@ public class Blocks {
         }
     }
 
-    public  void registerTileEntities() {
+    public void registerTileEntities() {
         if (Configuration.autoCrafterID > 0) {
             GameRegistry.registerTileEntity(TileEntityAutoCrafter.class, "craftingutilities_autocrafter");
         }
