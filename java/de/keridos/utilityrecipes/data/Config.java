@@ -3,73 +3,85 @@ package de.keridos.utilityrecipes.data;
 import net.minecraftforge.common.Configuration;
 
 public class Config {
-    public static boolean chiseledStoneBrickCrafting;
-    public static boolean crackedStoneBrickCrafting;
-    public static boolean grassCrafting;
-    public static boolean mossyCobbleCrafting;
-    public static boolean mossyStoneBrickCrafting;
-    public static boolean stoneDoubleSlabCrafting;
-    public static boolean slabToBlockCobbleCrafting;
-    public static boolean slabToBlockBrickCrafting;
-    public static boolean slabToBlockNetherBrickCrafting;
-    public static boolean slabToBlockOakWoodCrafting;
-    public static boolean slabToBlockSpruceWoodCrafting;
-    public static boolean slabToBlockBirchWoodCrafting;
-    public static boolean slabToBlockJungleWoodCrafting;
-    public static boolean slabToBlockStoneBrickCrafting;
-    public static boolean stoneSlabToFullSlabCrafting;
-    public static boolean chiseledSandstoneUncrafting;
+    private static Config instance = null;
+    public boolean chiseledStoneBrickCrafting;
+    public boolean crackedStoneBrickCrafting;
+    public boolean grassCrafting;
+    public boolean mossyCobbleCrafting;
+    public boolean mossyStoneBrickCrafting;
+    public boolean stoneDoubleSlabCrafting;
+    public boolean slabToBlockCobbleCrafting;
+    public boolean slabToBlockBrickCrafting;
+    public boolean slabToBlockNetherBrickCrafting;
+    public boolean slabToBlockOakWoodCrafting;
+    public boolean slabToBlockSpruceWoodCrafting;
+    public boolean slabToBlockBirchWoodCrafting;
+    public boolean slabToBlockJungleWoodCrafting;
+    public boolean slabToBlockStoneBrickCrafting;
+    public boolean stoneSlabToFullSlabCrafting;
+    public boolean chiseledSandstoneUncrafting;
 
-    public static boolean clayUncrafting;
-    public static boolean brickUncrafting;
-    public static boolean grassUncrafting;
-    public static boolean myceliumUncrafting;
-    public static boolean wheatUncrafting;
-    public static boolean stairsOakWoodUncrafting;
-    public static boolean stairsStoneUncrafting;
-    public static boolean stairsBricksUncrafting;
-    public static boolean stairsStoneBricksUncrafting;
-    public static boolean stairsSandstoneUncrafting;
-    public static boolean stairsNetherBrickUncrafting;
-    public static boolean stairsSpruceWoodUncrafting;
-    public static boolean stairsBirchWoodUncrafting;
-    public static boolean stairsJungleWoodUncrafting;
-    public static boolean stairsQuartzUncrafting;
+    public boolean clayUncrafting;
+    public boolean brickUncrafting;
+    public boolean grassUncrafting;
+    public boolean myceliumUncrafting;
+    public boolean wheatUncrafting;
+    public boolean stairsOakWoodUncrafting;
+    public boolean stairsStoneUncrafting;
+    public boolean stairsBricksUncrafting;
+    public boolean stairsStoneBricksUncrafting;
+    public boolean stairsSandstoneUncrafting;
+    public boolean stairsNetherBrickUncrafting;
+    public boolean stairsSpruceWoodUncrafting;
+    public boolean stairsBirchWoodUncrafting;
+    public boolean stairsJungleWoodUncrafting;
+    public boolean stairsQuartzUncrafting;
 
-    public static boolean ironPickaxeSmelting;
-    public static boolean ironAxeSmelting;
-    public static boolean ironHoeSmelting;
-    public static boolean ironSwordSmelting;
-    public static boolean ironHelmetSmelting;
-    public static boolean ironLeggingsSmelting;
-    public static boolean ironBootsSmelting;
-    public static boolean ironChestplateSmelting;
-    public static boolean goldPickaxeSmelting;
-    public static boolean goldAxeSmelting;
-    public static boolean goldHoeSmelting;
-    public static boolean goldSwordSmelting;
-    public static boolean goldHelmetSmelting;
-    public static boolean goldLeggingsSmelting;
-    public static boolean goldBootsSmelting;
-    public static boolean goldChestplateSmelting;
+    public boolean ironPickaxeSmelting;
+    public boolean ironAxeSmelting;
+    public boolean ironHoeSmelting;
+    public boolean ironSwordSmelting;
+    public boolean ironHelmetSmelting;
+    public boolean ironLeggingsSmelting;
+    public boolean ironBootsSmelting;
+    public boolean ironChestplateSmelting;
+    public boolean goldPickaxeSmelting;
+    public boolean goldAxeSmelting;
+    public boolean goldHoeSmelting;
+    public boolean goldSwordSmelting;
+    public boolean goldHelmetSmelting;
+    public boolean goldLeggingsSmelting;
+    public boolean goldBootsSmelting;
+    public boolean goldChestplateSmelting;
 
-    public static boolean bronzePickaxeSmelting;
-    public static boolean bronzeAxeSmelting;
-    public static boolean bronzeHoeSmelting;
-    public static boolean bronzeSwordSmelting;
-    public static boolean bronzeHelmetSmelting;
-    public static boolean bronzeChestplateSmelting;
-    public static boolean bronzeLeggingsSmelting;
-    public static boolean bronzeBootsSmelting;
-    public static boolean coalDustCompression;
+    public boolean bronzePickaxeSmelting;
+    public boolean bronzeAxeSmelting;
+    public boolean bronzeHoeSmelting;
+    public boolean bronzeSwordSmelting;
+    public boolean bronzeHelmetSmelting;
+    public boolean bronzeChestplateSmelting;
+    public boolean bronzeLeggingsSmelting;
+    public boolean bronzeBootsSmelting;
+    public boolean coalDustCompression;
 
-    public static boolean addGTMicroblocks;
-    public static boolean overwriteConflictingRecipes;
+    public boolean addGTMicroblocks;
+    public boolean addMFRMicroblocks;
+    public boolean overwriteConflictingRecipes;
 
-    public static int autoCrafterID;
-    public static int craftingStationID;
+    public int autoCrafterID;
+    public int craftingStationID;
 
-    private static void craftingConfig(Configuration config) {
+    private Config() {
+    }
+
+    public static Config getInstance() {
+        if (instance == null) {
+            instance = new Config();
+        }
+        return instance;
+    }
+
+    private void craftingConfig(Configuration config) {
         config.getCategory("crafting");
         chiseledStoneBrickCrafting = config.get("crafting", "chiseledStoneBrickCrafting", true).getBoolean(true);
         crackedStoneBrickCrafting = config.get("crafting", "crackedStoneBrickCrafting", true).getBoolean(true);
@@ -89,7 +101,7 @@ public class Config {
         stoneSlabToFullSlabCrafting = config.get("crafting", "stoneSlabToSlabBlockCrafting", true).getBoolean(true);
     }
 
-    private static void uncraftingConfig(Configuration config) {
+    private void uncraftingConfig(Configuration config) {
         config.getCategory("uncrafting");
         chiseledSandstoneUncrafting = config.get("uncrafting", "chiseledSandstoneUncrafting", true).getBoolean(true);
         clayUncrafting = config.get("uncrafting", "clayUncrafting", true).getBoolean(true);
@@ -109,7 +121,7 @@ public class Config {
         stairsQuartzUncrafting = config.get("uncrafting", "stairsQuartzUncrafting", true).getBoolean(true);
     }
 
-    private static void smeltingConfig(Configuration config) {
+    private void smeltingConfig(Configuration config) {
         config.getCategory("smelting");
         ironPickaxeSmelting = config.get("smelting", "ironPickaxeSmelting", true).getBoolean(true);
         ironAxeSmelting = config.get("smelting", "ironAxeSmelting", true).getBoolean(true);
@@ -129,7 +141,7 @@ public class Config {
         goldBootsSmelting = config.get("smelting", "goldBootsSmelting", true).getBoolean(true);
     }
 
-    private static void IC2Config(Configuration config) {
+    private void IC2Config(Configuration config) {
         config.getCategory("ic2");
         bronzePickaxeSmelting = config.get("ic2", "bronzePickaxeSmelting", true).getBoolean(true);
         bronzeAxeSmelting = config.get("ic2", "bronzeAxeSmelting", true).getBoolean(true);
@@ -142,22 +154,23 @@ public class Config {
         coalDustCompression = config.get("ic2", "coalDustCompression", true).getBoolean(true);
     }
 
-    public static void blockConfig(Configuration config) {
+    public void blockConfig(Configuration config) {
         config.getCategory("blocks");
         config.addCustomCategoryComment("blocks", "Setting an ID to 0 will not register the block, nor its recipes.");
         autoCrafterID = config.get("blocks", "autoCrafterID", 3974).getInt();
         autoCrafterID = config.get("blocks", "autoCrafterID", 3975).getInt();
     }
 
-    public static void featureConfig(Configuration config) {
+    public void featureConfig(Configuration config) {
         config.getCategory("microblocks");
         config.addCustomCategoryComment("microblocks", "Forge Multipart and Facades Support for Mods");
         addGTMicroblocks = config.get("microblocks", "addGTMicroblocks", true).getBoolean(true);
+        addMFRMicroblocks = config.get("microblocks", "addMFRMicroblocks", true).getBoolean(true);
         config.getCategory("general");
         overwriteConflictingRecipes = config.get("general", "overwriteConflictingRecipes", true).getBoolean(true);
     }
 
-    public static void initConfig(Configuration config) {
+    public void initConfig(Configuration config) {
         config.load();
         craftingConfig(config);
         uncraftingConfig(config);

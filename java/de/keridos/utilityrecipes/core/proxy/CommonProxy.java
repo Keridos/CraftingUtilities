@@ -8,6 +8,7 @@ package de.keridos.utilityrecipes.core.proxy;
  * To change this template use File | Settings | File Templates.
  */
 public class CommonProxy {
+
     public void initRenderers() {
 
     }

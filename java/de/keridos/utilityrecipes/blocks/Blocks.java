@@ -18,36 +18,48 @@ import net.minecraftforge.common.MinecraftForge;
  */
 
 public class Blocks {
-    public static Block blockAutoCrafter;
-    public static Block blockCraftingStation;
+    private static Blocks instance = null;
+    private static Config Configuration = Config.getInstance();
+    public  Block blockAutoCrafter;
+    public  Block blockCraftingStation;
 
-    public static void setupBlocks() {
-        if (Config.autoCrafterID > 0) {
-            blockAutoCrafter = new BlockAutoCrafter(Config.autoCrafterID, Material.wood);
+    private Blocks() {}
+
+    public static Blocks getInstance() {
+        if (instance == null) {
+            instance = new Blocks();
         }
-        if (Config.craftingStationID > 0) {
-            blockCraftingStation = new BlockCraftingStation(Config.craftingStationID, Material.wood);
+        return instance;
+    }
+
+
+    public  void setupBlocks() {
+        if (Configuration.autoCrafterID > 0) {
+            blockAutoCrafter = new BlockAutoCrafter(Configuration.autoCrafterID, Material.wood);
+        }
+        if (Configuration.craftingStationID > 0) {
+            blockCraftingStation = new BlockCraftingStation(Configuration.craftingStationID, Material.wood);
         }
     }
 
-    public static void registerBlocks() {
-        if (Config.autoCrafterID > 0) {
+    public  void registerBlocks() {
+        if (Configuration.autoCrafterID > 0) {
             GameRegistry.registerBlock(blockAutoCrafter, "BlockAutoCrafter");
             LanguageRegistry.addName(blockAutoCrafter, "Auto Crafter");
             MinecraftForge.setBlockHarvestLevel(blockAutoCrafter, "axe", 0);
         }
-        if (Config.craftingStationID > 0) {
+        if (Configuration.craftingStationID > 0) {
             GameRegistry.registerBlock(blockCraftingStation, "BlockCraftingStation");
             LanguageRegistry.addName(blockCraftingStation, "Crafting Station");
             MinecraftForge.setBlockHarvestLevel(blockCraftingStation, "axe", 0);
         }
     }
 
-    public static void registerTileEntities() {
-        if (Config.autoCrafterID > 0) {
+    public  void registerTileEntities() {
+        if (Configuration.autoCrafterID > 0) {
             GameRegistry.registerTileEntity(TileEntityAutoCrafter.class, "utilityrecipes_autocrafter");
         }
-        if (Config.craftingStationID > 0) {
+        if (Configuration.craftingStationID > 0) {
             GameRegistry.registerTileEntity(TileEntityCraftingStation.class, "utilityrecipes_craftingstation");
         }
     }

@@ -2,8 +2,8 @@
 {
   "modid": "UtilityRecipes",
   "name": "Utility Recipes",
-  "description": "Adds a bunch of handy recipes and GT Microblocks. And an autocrafter.",
-  "version": "0.3.0",
+  "description": "Adds a bunch of handy recipes and GT&MFR Microblocks and Facades. And an autocrafter.",
+  "version": "0.3.1",
   "mcversion": "1.6.4",
   "url": "",
   "updateUrl": "",
@@ -18,7 +18,8 @@
   "dependencies": [
     "arsmagica2",
     "gregtech_addon",
-    "BuildCraft|Transport"
+    "BuildCraft|Transport",
+    "MineFactoryReloaded"
   ] ,
   "useDependencyInformation":"true"
 }

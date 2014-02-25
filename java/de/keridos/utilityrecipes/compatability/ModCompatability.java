@@ -6,25 +6,41 @@ import cpw.mods.fml.common.event.FMLInterModComms;
 import de.keridos.utilityrecipes.data.Config;
 import gregtechmod.api.GregTech_API;
 import net.minecraft.item.ItemStack;
+import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
+import powercrystals.minefactoryreloaded.block.BlockFactoryDecorativeBricks;
 
 public class ModCompatability {
-    private static Class Ic2Items;
+    private static ModCompatability instance = null;
+    private static Config Configuration = Config.getInstance();
 
-    public static boolean IC2Loaded;
-    public static boolean GTLoaded;
-    public static boolean AM2Loaded;
-    public static boolean FMPLoaded;
-    public static boolean BCLoaded;
+    private Class Ic2Items;
 
-    public static void checkForMods() {
+    public boolean IC2Loaded;
+    public boolean GTLoaded;
+    public boolean AM2Loaded;
+    public boolean FMPLoaded;
+    public boolean BCLoaded;
+    public boolean MFRLoaded;
+
+    private ModCompatability() {}
+
+    public static ModCompatability getInstance() {
+        if (instance == null) {
+            instance = new ModCompatability();
+        }
+        return instance;
+    }
+
+    public void checkForMods() {
         IC2Loaded = Loader.isModLoaded("IC2");
         GTLoaded = Loader.isModLoaded("gregtech_addon");
         AM2Loaded = Loader.isModLoaded("arsmagica2");
         FMPLoaded = Loader.isModLoaded("ForgeMultipart");
         BCLoaded = Loader.isModLoaded("BuildCraft|Transport");
+        MFRLoaded = Loader.isModLoaded("MineFactoryReloaded");
     }
 
-    public static ItemStack getIC2Item(String name) {
+    public ItemStack getIC2Item(String name) {
         try {
             if (Ic2Items == null) Ic2Items = Class.forName("ic2.core.Ic2Items");
 
@@ -40,12 +56,17 @@ public class ModCompatability {
         }
     }
 
-    private static void registerFacade(int id, int c) {
+    private void registerFacade(int id, int c) {
         FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", String.format("%d@%d", id, c));
     }
 
-    public static void registerGTMicroblocks() {
-        if (FMPLoaded && GTLoaded && Config.addGTMicroblocks) {
+    public void registerMicroblocks() {
+        registerGTMicroblocks();
+        registerMFRMicroblocks();
+    }
+
+    public void registerGTMicroblocks() {
+        if (FMPLoaded && GTLoaded && Configuration.addGTMicroblocks) {
             for (int i = 0; i < 16; i++) {
                 BlockMicroMaterial.createAndRegister(GregTech_API.sBlockList[5], i);
             }
@@ -62,7 +83,7 @@ public class ModCompatability {
             BlockMicroMaterial.createAndRegister(GregTech_API.sBlockList[0], 11);
             BlockMicroMaterial.createAndRegister(GregTech_API.sBlockList[0], 12);
         }
-        if (BCLoaded && GTLoaded && Config.addGTMicroblocks) {
+        if (BCLoaded && GTLoaded && Configuration.addGTMicroblocks) {
             for (int i = 0; i < 16; i++) {
                 registerFacade(GregTech_API.sBlockList[5].blockID, i);
             }
@@ -78,6 +99,17 @@ public class ModCompatability {
             registerFacade(GregTech_API.sBlockList[0].blockID, 9);
             registerFacade(GregTech_API.sBlockList[0].blockID, 11);
             registerFacade(GregTech_API.sBlockList[0].blockID, 12);
+        }
+    }
+
+    public void registerMFRMicroblocks() {
+        if (BCLoaded && MFRLoaded && Configuration.addMFRMicroblocks) {
+            for (int i = 0; i < 11; i++) {
+                registerFacade(MineFactoryReloadedCore.factoryDecorativeBrickBlock.blockID, i);
+            }
+            for (int i = 0; i < 12; i++) {
+                registerFacade(MineFactoryReloadedCore.factoryDecorativeStoneBlock.blockID, i);
+            }
         }
     }
 }
