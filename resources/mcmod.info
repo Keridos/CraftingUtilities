@@ -1,8 +1,8 @@
 [
 {
-  "modid": "UtilityRecipes",
-  "name": "Utility Recipes",
-  "description": "Adds a bunch of handy recipes and GT&MFR Microblocks and Facades. And an autocrafter.",
+  "modid": "CraftingUtilities",
+  "name": "Crafting Utilities",
+  "description": "Adds a bunch of handy recipes and GT&MFR Microblocks/Facades. And an autocrafter.",
   "version": "0.3.1",
   "mcversion": "1.6.4",
   "url": "",
