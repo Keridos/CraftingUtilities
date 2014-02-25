@@ -10,7 +10,7 @@
     "updateUrl": "",
     "authors": [ "Keridos", "HarmonySmurf" ],
     "credits": "Keridos, Harmonysmurf, and thanks for the findMatchingRecipe from Buildcraft team",
-    "logoFile": "g",
+    "logoFile": "",
     "screenshots": [ "" ],
     "parent": "",
     "requiredMods": [ "Forge" ],
