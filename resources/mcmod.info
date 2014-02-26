@@ -1,26 +1,26 @@
-{
-  "modinfoversion": 2,
-  "modlist": [{
-    "modid": "CraftingUtilities",
-    "name": "Crafting Utilities",
-    "description": "Adds a bunch of handy recipes and GT and MFR Microblocks and Facades. And an autocrafter.",
-    "version": "0.3.1",
-    "mcversion": "1.6.4",
-    "url": "",
-    "updateUrl": "",
-    "authors": [ "Keridos", "HarmonySmurf" ],
-    "credits": "Keridos, Harmonysmurf, and thanks for the findMatchingRecipe from Buildcraft team",
-    "logoFile": "",
-    "screenshots": [ "" ],
-    "parent": "",
-    "requiredMods": [ "Forge" ],
-    "dependencies": [
-      "arsmagica2",
-      "gregtech_addon",
-      "BuildCraft|Transport",
-      "MineFactoryReloaded"
-    ],
-    "dependants": [ "" ],
-    "useDependencyInformation": "true"
-  }]
-}
+[{
+  "modid": "CraftingUtilities",
+  "name": "Crafting Utilities",
+  "description": "Adds a bunch of handy recipes and GT and MFR Microblocks and Facades. And an autocrafter.",
+  "version": "0.3.2",
+  "mcversion": "1.6.4",
+  "url": "",
+  "updateUrl": "",
+  "authors": [ "Keridos", "HarmonySmurf" ],
+  "credits": "Keridos, Harmonysmurf, and thanks for the findMatchingRecipe from Buildcraft team",
+  "logoFile": "",
+  "screenshots": [  ],
+  "parent": "",
+  "requiredMods": [ "Forge" ],
+  "dependencies": [
+    "arsmagica2",
+    "gregtech_addon",
+    "BuildCraft|Transport",
+    "MineFactoryReloaded".
+    "BiomesOPlenty",
+    "ExtrabiomesXL",
+    "IC2"
+  ],
+  "dependants": [  ],
+  "useDependencyInformation": "true"
+}]

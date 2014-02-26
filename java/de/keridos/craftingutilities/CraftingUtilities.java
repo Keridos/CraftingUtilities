@@ -31,7 +31,7 @@ public class CraftingUtilities {
     private static Blocks BlockHandler = Blocks.getInstance();
 
     @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".CommonProxy")
-    public static CommonProxy proxy = new CommonProxy();
+    public static CommonProxy proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -48,7 +48,7 @@ public class CraftingUtilities {
         new GuiHandler();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
-        ModCompat.registerMicroblocks();
+        ModCompat.registerModCompatBlocks();
         RecipeHandler.initRecipes();
     }
 
