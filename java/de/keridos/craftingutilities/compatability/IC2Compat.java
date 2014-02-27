@@ -10,6 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class IC2Compat {
     private static IC2Compat instance = null;
+
     private static Class Ic2Items;
 
     private IC2Compat() {
@@ -23,7 +24,6 @@ public class IC2Compat {
     }
 
     public void registerIC2CoalDustRecipe(ItemStack item) {
-
         if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
             ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound("0"),
                     new ItemStack(Item.coal, 1));

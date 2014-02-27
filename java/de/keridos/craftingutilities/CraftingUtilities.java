@@ -20,7 +20,7 @@ import net.minecraftforge.common.Configuration;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
+@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
 public class CraftingUtilities {
     @Mod.Instance(Reference.MOD_ID)
     public static CraftingUtilities instance;

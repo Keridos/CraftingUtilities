@@ -9,14 +9,14 @@
   "authors": [ "Keridos", "HarmonySmurf" ],
   "credits": "Keridos, Harmonysmurf, and thanks for the findMatchingRecipe from Buildcraft team",
   "logoFile": "",
-  "screenshots": [  ],
+  "screenshots": [ ],
   "parent": "",
   "requiredMods": [ "Forge" ],
   "dependencies": [
     "arsmagica2",
     "gregtech_addon",
     "BuildCraft|Transport",
-    "MineFactoryReloaded".
+    "MineFactoryReloaded",
     "BiomesOPlenty",
     "ExtrabiomesXL",
     "IC2"
