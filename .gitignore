@@ -1,0 +1,16 @@
+CraftingUtilities.iml
+CraftingUtilities.ipr
+CraftingUtilities.iws
+CREDITS-fml*
+forge-*-changelog.txt
+gradlew*
+LICENSE-fml*
+MinecraftForge-Credits.txt
+MinecraftForge-License.txt
+build/
+.gradle/
+eclipse/
+gradle/
+libs/
+out/
+src/api
