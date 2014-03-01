@@ -19,9 +19,17 @@ import net.minecraft.world.World;
  * To change this template use File | Settings | File Templates.
  */
 public class GuiHandler implements IGuiHandler {
+    private static GuiHandler instance = null;
 
-    public GuiHandler() {
+    private GuiHandler() {
         NetworkRegistry.instance().registerGuiHandler(CraftingUtilities.instance, this);
+    }
+
+    public static GuiHandler getInstance() {
+        if (instance == null) {
+            instance = new GuiHandler();
+        }
+        return instance;
     }
 
     @Override

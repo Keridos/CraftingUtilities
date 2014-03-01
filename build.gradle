@@ -13,7 +13,7 @@ buildscript {
 apply plugin: 'scala'
 apply plugin: 'forge'
 
-version = "0.3.2"
+version = "0.3.3-1.6.4"
 group= "de.keridos.craftingutilities" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CraftingUtilities"
 

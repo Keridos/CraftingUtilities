@@ -24,11 +24,13 @@ import net.minecraftforge.common.Configuration;
 public class CraftingUtilities {
     @Mod.Instance(Reference.MOD_ID)
     public static CraftingUtilities instance;
+
     private static Config config = Config.getInstance();
     private static ModCompatability ModCompat = ModCompatability.getInstance();
     private static EventListener EventHandler = EventListener.getInstance();
     private static Recipes RecipeHandler = Recipes.getInstance();
     private static Blocks BlockHandler = Blocks.getInstance();
+    private static GuiHandler Gui = null;
 
     @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".CommonProxy")
     public static CommonProxy proxy;
@@ -45,11 +47,11 @@ public class CraftingUtilities {
     public void init(FMLInitializationEvent event) {
         proxy.initRenderers();
         proxy.initSounds();
-        new GuiHandler();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
         ModCompat.registerModCompatBlocks();
         RecipeHandler.initRecipes();
+        Gui = GuiHandler.getInstance();
     }
 
     @EventHandler

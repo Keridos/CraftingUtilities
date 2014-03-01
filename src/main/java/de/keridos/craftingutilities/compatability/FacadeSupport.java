@@ -7,6 +7,7 @@ import de.keridos.craftingutilities.data.Config;
 import extrabiomes.api.Stuff;
 import extrabiomes.lib.BlockSettings;
 import gregtechmod.api.GregTech_API;
+import mrtjp.projectred.core.Configurator;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 
 /**
@@ -35,6 +36,7 @@ public class FacadeSupport {
         registerGTFacades();
         registerBoPFacades();
         registerEBXLFacades();
+        registerPRFacades();
     }
 
     private void registerMFRFacades() {
@@ -44,6 +46,17 @@ public class FacadeSupport {
             }
             for (int i = 0; i < 12; i++) {
                 registerFacade(MineFactoryReloadedCore.factoryDecorativeStoneBlock.blockID, i);
+            }
+        }
+    }
+
+    private void registerPRFacades() {
+        if (ModCompatability.BCLoaded && ModCompatability.PRLoaded && Configuration.addProjRedMicroblocks) {
+            registerFacade(Configurator.block_oresID.getInt(), 0);
+            registerFacade(Configurator.block_oresID.getInt(), 1);
+            registerFacade(Configurator.block_oresID.getInt(), 2);
+            for (int i = 0; i <= 7; i++) {
+                registerFacade(Configurator.block_stonesID.getInt(), i);
             }
         }
     }

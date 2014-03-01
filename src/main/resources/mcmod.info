@@ -1,8 +1,8 @@
 [{
   "modid": "CraftingUtilities",
   "name": "Crafting Utilities",
-  "description": "Adds a bunch of handy recipes and GT and MFR Microblocks and Facades. And an autocrafter.",
-  "version": "0.3.2",
+  "description": "Adds a bunch of handy recipes and some Microblocks/Facades for some mods. And an autocrafter.",
+  "version": "0.33",
   "mcversion": "1.6.4",
   "url": "",
   "updateUrl": "",
@@ -19,7 +19,8 @@
     "MineFactoryReloaded",
     "BiomesOPlenty",
     "ExtrabiomesXL",
-    "IC2"
+    "IC2",
+    "ProjRed|Exploration"
   ],
   "dependants": [  ],
   "useDependencyInformation": "true"

@@ -17,7 +17,9 @@ public class ModCompatability {
     public static boolean MFRLoaded = false;
     public static boolean BoPLoaded = false;
     public static boolean EBXLLoaded = false;
+    public static boolean PRLoaded = false;
     public static boolean ExtraUtilLoaded = false;
+
 
     private ModCompatability() {
     }
@@ -39,6 +41,7 @@ public class ModCompatability {
         BoPLoaded = Loader.isModLoaded("BiomesOPlenty");
         EBXLLoaded = Loader.isModLoaded("ExtraBiomesXL");
         ExtraUtilLoaded = Loader.isModLoaded("ExtraUtilities");
+        PRLoaded = Loader.isModLoaded("ProjRed|Exploration");
     }
 
 

@@ -68,6 +68,7 @@ public class Config {
     public static boolean addMFRMicroblocks;
     public static boolean addBoPMicroblocks;
     public static boolean addEBXLMicroblocks;
+    public static boolean addProjRedMicroblocks;
     public static boolean overwriteConflictingRecipes;
 
     public static int autoCrafterID;
@@ -170,6 +171,7 @@ public class Config {
         addMFRMicroblocks = config.get("microblocks", "addMFRMicroblocks", true).getBoolean(true);
         addBoPMicroblocks = config.get("microblocks", "addBoPMicroblocks", true).getBoolean(true);
         addEBXLMicroblocks = config.get("microblocks", "addEBXLMicroblocks", true).getBoolean(true);
+        addProjRedMicroblocks = config.get("microblocks", "addProjRedMicroblocks", true).getBoolean(true);
         config.getCategory("general");
         overwriteConflictingRecipes = config.get("general", "overwriteConflictingRecipes", true).getBoolean(true);
     }
