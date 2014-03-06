@@ -120,14 +120,28 @@ public class FacadeSupport {
 
     private void registerIC2Facades() {
         if (ModCompatability.IC2Loaded && ModCompatability.BCLoaded && Configuration.addIC2Microblocks) {
-            registerFacade(Ic2Items.copperOre.itemID, 0);
-            registerFacade(Ic2Items.tinOre.itemID, 0);
-            registerFacade(Ic2Items.uraniumOre.itemID, 0);
-            registerFacade(Ic2Items.leadOre.itemID, 0);
-            registerFacade(Ic2Items.reinforcedStone.itemID, 0);
-            registerFacade(Ic2Items.reinforcedGlass.itemID, 0);
-            for (int i = 0; i < 4; i++) {
-                registerFacade(Ic2Items.copperBlock.itemID, i);
+            if (Ic2Items.copperOre != null) {
+                registerFacade(Ic2Items.copperOre.itemID, 0);
+            }
+            if (Ic2Items.tinOre != null) {
+                registerFacade(Ic2Items.tinOre.itemID, 0);
+            }
+            if (Ic2Items.uraniumOre != null) {
+                registerFacade(Ic2Items.uraniumOre.itemID, 0);
+            }
+            if (Ic2Items.leadOre != null) {
+                registerFacade(Ic2Items.leadOre.itemID, 0);
+            }
+            if (Ic2Items.reinforcedStone != null) {
+                registerFacade(Ic2Items.reinforcedStone.itemID, 0);
+            }
+            if (Ic2Items.reinforcedGlass != null) {
+                registerFacade(Ic2Items.reinforcedGlass.itemID, 0);
+            }
+            if (Ic2Items.copperBlock != null) {
+                for (int i = 0; i < 4; i++) {
+                    registerFacade(Ic2Items.copperBlock.itemID, i);
+                }
             }
         }
     }

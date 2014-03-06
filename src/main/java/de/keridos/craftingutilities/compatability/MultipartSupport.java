@@ -97,10 +97,18 @@ public class MultipartSupport {
     private void registerIC2Microblocks() {
         try {
             if (ModCompatability.IC2Loaded && Configuration.addIC2Microblocks) {
-                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperOre.itemID], 0);
-                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.tinOre.itemID], 0);
-                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.uraniumOre.itemID], 0);
-                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.leadOre.itemID], 0);
+                if (Ic2Items.copperOre != null) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperOre.itemID], 0);
+                }
+                if (Ic2Items.tinOre != null) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.tinOre.itemID], 0);
+                }
+                if (Ic2Items.uraniumOre != null) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.uraniumOre.itemID], 0);
+                }
+                if (Ic2Items.leadOre != null) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.leadOre.itemID], 0);
+                }
                 BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 0);
                 BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 1);
                 BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 2);
