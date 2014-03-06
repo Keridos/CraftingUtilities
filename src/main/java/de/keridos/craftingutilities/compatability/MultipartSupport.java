@@ -7,6 +7,7 @@ import de.keridos.craftingutilities.data.Config;
 import extrabiomes.api.Stuff;
 import extrabiomes.lib.BlockSettings;
 import gregtechmod.api.GregTech_API;
+import ic2.core.Ic2Items;
 import net.minecraft.block.Block;
 
 /**
@@ -30,6 +31,7 @@ public class MultipartSupport {
         registerGTMicroblocks();
         registerBoPMicroblocks();
         registerEBXLMicroblocks();
+        registerIC2Microblocks();
     }
 
     private void registerGTMicroblocks() {
@@ -87,6 +89,25 @@ public class MultipartSupport {
                 for (int i = 0; i < 14; i++) {
                     BlockMicroMaterial.createAndRegister(Block.blocksList[BlockSettings.NEWLOG.getID()], 0);
                 }
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void registerIC2Microblocks() {
+        try {
+            if (ModCompatability.IC2Loaded && Configuration.addIC2Microblocks) {
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperOre.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.tinOre.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.uraniumOre.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.leadOre.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 1);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 2);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 3);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.copperBlock.itemID], 4);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.reinforcedStone.itemID], 0);
+                BlockMicroMaterial.createAndRegister(Block.blocksList[Ic2Items.reinforcedGlass.itemID], 0);
             }
         } catch (Exception e) {
         }

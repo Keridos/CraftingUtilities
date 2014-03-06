@@ -77,14 +77,25 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     private boolean checkResources() {
         int i;
         int j;
+        ItemStack[] CraftResources = new ItemStack[18];
         int recipe_completion = 0;
+        for (j = 0; j < 18; j++) {
+            if (getStackInSlot(j) != null) {
+                CraftResources[j] = getStackInSlot(j).copy();
+            }
+        }
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 18; j++) {
                 if (craftMatrix.getStackInSlot(i) == null) {
                     recipe_completion++;
                     break;
-                } else if (getStackInSlot(j) != null) {
-                    if (craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem()) {
+                } else if (CraftResources[j] != null) {
+                    if (craftMatrix.getStackInSlot(i).getItem() == CraftResources[j].getItem()) {
+                        if (CraftResources[j].stackSize > 1) {
+                            CraftResources[j].stackSize--;
+                        } else {
+                            CraftResources[j] = null;
+                        }
                         recipe_completion++;
                         break;
                     }
@@ -123,7 +134,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
                         break;
                     } else if (getStackInSlot(j) != null) {
                         if ((craftMatrix.getStackInSlot(i).getItem() == getStackInSlot(j).getItem())) {
-                            if (getStackInSlot(j).stackSize > 2) {
+                            if (getStackInSlot(j).stackSize > 1) {
                                 getStackInSlot(j).stackSize--;
                             } else {
                                 setInventorySlotContents(j, null);

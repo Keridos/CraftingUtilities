@@ -37,11 +37,12 @@ public class IC2Compat {
             Object ret = Ic2Items.getField(name).get(null);
 
             if (ret instanceof ItemStack) {
-                return ((ItemStack) ret).copy();
-            } else {
-                return null;
+                return (ItemStack) ret;
             }
+            return null;
         } catch (Exception e) {
+            System.out.println("IC2 API: Call getItem failed for " + name);
+
             return null;
         }
     }

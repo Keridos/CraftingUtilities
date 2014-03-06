@@ -7,6 +7,7 @@ import de.keridos.craftingutilities.data.Config;
 import extrabiomes.api.Stuff;
 import extrabiomes.lib.BlockSettings;
 import gregtechmod.api.GregTech_API;
+import ic2.core.Ic2Items;
 import mrtjp.projectred.core.Configurator;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 
@@ -37,6 +38,7 @@ public class FacadeSupport {
         registerBoPFacades();
         registerEBXLFacades();
         registerPRFacades();
+        registerIC2Facades();
     }
 
     private void registerMFRFacades() {
@@ -112,6 +114,20 @@ public class FacadeSupport {
             }
             for (int i = 0; i < 14; i++) {
                 registerFacade(BlockSettings.NEWLOG.getID(), 0);
+            }
+        }
+    }
+
+    private void registerIC2Facades() {
+        if (ModCompatability.IC2Loaded && ModCompatability.BCLoaded && Configuration.addIC2Microblocks) {
+            registerFacade(Ic2Items.copperOre.itemID, 0);
+            registerFacade(Ic2Items.tinOre.itemID, 0);
+            registerFacade(Ic2Items.uraniumOre.itemID, 0);
+            registerFacade(Ic2Items.leadOre.itemID, 0);
+            registerFacade(Ic2Items.reinforcedStone.itemID, 0);
+            registerFacade(Ic2Items.reinforcedGlass.itemID, 0);
+            for (int i = 0; i < 4; i++) {
+                registerFacade(Ic2Items.copperBlock.itemID, i);
             }
         }
     }
