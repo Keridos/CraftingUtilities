@@ -16,7 +16,7 @@ apply plugin: 'forge'
 mcversion="1.6.4"
 version = "0.3.5"
 if (hasProperty('appendBuildNumber')){
-	version = version + "." + appendBuildNumber
+	version = version + "-" + appendBuildNumber
 }
 version = version + "-" + mcversion
 
