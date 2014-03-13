@@ -18,7 +18,7 @@ version = "0.3.5"
 if (hasProperty('appendBuildNumber')){
 	version = version + "-" + appendBuildNumber
 }
-version = version + "-" + mcversion
+version = mcversion + "-" + version
 
 group= "de.keridos.craftingutilities" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CraftingUtilities"
