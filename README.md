@@ -9,6 +9,6 @@ Every Feature in this Mod is disable-able in the config file.
 
 Also added in is an Autocrafter that will craft the recipe you set in the top crafting table from the items in the bottom on every redstone pulse.
 
-Planned: Project Table like station.
+Planned: Project Table like station. More Microblock and Facade Support.
 
 Downloads are in the [Wiki](https://github.com/Keridos/CraftingUtilities/wiki)
