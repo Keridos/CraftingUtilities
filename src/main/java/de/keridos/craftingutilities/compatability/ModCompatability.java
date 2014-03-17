@@ -46,7 +46,11 @@ public class ModCompatability {
 
 
     public void registerModCompatBlocks() {
-        MultipartHandler.registerMicroblocks();
-        FacadeHandler.registerModFacades();
+        if (FMPLoaded) {
+            MultipartHandler.registerMicroblocks();
+        }
+        if (BCLoaded) {
+            FacadeHandler.registerModFacades();
+        }
     }
 }

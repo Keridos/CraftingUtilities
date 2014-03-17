@@ -36,7 +36,7 @@ public class MultipartSupport {
 
     private void registerGTMicroblocks() {
         try {
-            if (ModCompatability.FMPLoaded && ModCompatability.GTLoaded && Configuration.addGTMicroblocks) {
+            if (ModCompatability.GTLoaded && Configuration.addGTMicroblocks) {
                 for (int i = 0; i < 16; i++) {
                     BlockMicroMaterial.createAndRegister(GregTech_API.sBlockList[5], i);
                 }

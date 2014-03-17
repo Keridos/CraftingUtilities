@@ -42,7 +42,7 @@ public class FacadeSupport {
     }
 
     private void registerMFRFacades() {
-        if (ModCompatability.BCLoaded && ModCompatability.MFRLoaded && Configuration.addMFRMicroblocks) {
+        if (ModCompatability.MFRLoaded && Configuration.addMFRMicroblocks) {
             for (int i = 0; i < 11; i++) {
                 registerFacade(MineFactoryReloadedCore.factoryDecorativeBrickBlock.blockID, i);
             }
@@ -53,7 +53,7 @@ public class FacadeSupport {
     }
 
     private void registerPRFacades() {
-        if (ModCompatability.BCLoaded && ModCompatability.PRLoaded && Configuration.addProjRedMicroblocks) {
+        if (ModCompatability.PRLoaded && Configuration.addProjRedMicroblocks) {
             registerFacade(Configurator.block_oresID.getInt(), 0);
             registerFacade(Configurator.block_oresID.getInt(), 1);
             registerFacade(Configurator.block_oresID.getInt(), 2);
@@ -64,7 +64,7 @@ public class FacadeSupport {
     }
 
     private void registerGTFacades() {
-        if (ModCompatability.BCLoaded && ModCompatability.GTLoaded && Configuration.addGTMicroblocks) {
+        if (ModCompatability.GTLoaded && Configuration.addGTMicroblocks) {
             for (int i = 0; i < 16; i++) {
                 registerFacade(GregTech_API.sBlockList[5].blockID, i);
             }
@@ -84,7 +84,7 @@ public class FacadeSupport {
     }
 
     private void registerBoPFacades() {
-        if (ModCompatability.BoPLoaded && ModCompatability.BCLoaded && Configuration.addBoPMicroblocks) {
+        if (ModCompatability.BoPLoaded && Configuration.addBoPMicroblocks) {
             registerFacade(BOPConfigurationIDs.mudBrickBlockID, 0);
             registerFacade(BOPConfigurationIDs.redRockID, 0);
             registerFacade(BOPConfigurationIDs.redRockID, 1);
@@ -105,7 +105,7 @@ public class FacadeSupport {
     }
 
     private void registerEBXLFacades() {
-        if (ModCompatability.EBXLLoaded && ModCompatability.BCLoaded && Configuration.addEBXLMicroblocks) {
+        if (ModCompatability.EBXLLoaded && Configuration.addEBXLMicroblocks) {
             registerFacade(BlockSettings.REDROCK.getID(), 0);
             registerFacade(BlockSettings.REDROCK.getID(), 1);
             registerFacade(BlockSettings.REDROCK.getID(), 2);
@@ -119,7 +119,7 @@ public class FacadeSupport {
     }
 
     private void registerIC2Facades() {
-        if (ModCompatability.IC2Loaded && ModCompatability.BCLoaded && Configuration.addIC2Microblocks) {
+        if (ModCompatability.IC2Loaded && Configuration.addIC2Microblocks) {
             if (Ic2Items.copperOre != null) {
                 registerFacade(Ic2Items.copperOre.itemID, 0);
             }
