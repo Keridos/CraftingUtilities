@@ -2,7 +2,7 @@
   "modid": "CraftingUtilities",
   "name": "Crafting Utilities",
   "description": "Adds a bunch of handy recipes and some Microblocks/Facades for some mods. And an autocrafter.",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "mcversion": "1.6.4",
   "url": "",
   "updateUrl": "",

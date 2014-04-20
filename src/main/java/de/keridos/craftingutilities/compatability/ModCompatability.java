@@ -1,11 +1,9 @@
 package de.keridos.craftingutilities.compatability;
 
 import cpw.mods.fml.common.Loader;
-import de.keridos.craftingutilities.data.Config;
 
 public class ModCompatability {
     private static ModCompatability instance = null;
-    private static Config Configuration = Config.getInstance();
     private static MultipartSupport MultipartHandler = MultipartSupport.getInstance();
     private static FacadeSupport FacadeHandler = FacadeSupport.getInstance();
 
@@ -19,6 +17,7 @@ public class ModCompatability {
     public static boolean EBXLLoaded = false;
     public static boolean PRLoaded = false;
     public static boolean ExtraUtilLoaded = false;
+    public static boolean GSLoaded = false;
 
 
     private ModCompatability() {
@@ -42,6 +41,7 @@ public class ModCompatability {
         EBXLLoaded = Loader.isModLoaded("ExtraBiomesXL");
         ExtraUtilLoaded = Loader.isModLoaded("ExtraUtilities");
         PRLoaded = Loader.isModLoaded("ProjRed|Exploration");
+        GSLoaded = Loader.isModLoaded("GeoStrata");
     }
 
 

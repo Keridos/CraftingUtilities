@@ -13,6 +13,5 @@ eclipse/
 gradle/
 libs/
 out/
-src/api
 buildscript.sh
 buildnumber

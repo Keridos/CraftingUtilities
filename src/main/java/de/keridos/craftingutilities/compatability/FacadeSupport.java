@@ -1,6 +1,7 @@
 package de.keridos.craftingutilities.compatability;
 
 
+import Reika.GeoStrata.Registry.GeoBlocks;
 import biomesoplenty.configuration.BOPConfigurationIDs;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import de.keridos.craftingutilities.data.Config;
@@ -39,6 +40,7 @@ public class FacadeSupport {
         registerEBXLFacades();
         registerPRFacades();
         registerIC2Facades();
+        registerGSFacades();
     }
 
     private void registerMFRFacades() {
@@ -143,6 +145,25 @@ public class FacadeSupport {
                     registerFacade(Ic2Items.copperBlock.itemID, i);
                 }
             }
+        }
+    }
+
+    private void registerGSFacades() {
+        try {
+            if (ModCompatability.GSLoaded && Configuration.addGSMicroblocks) {
+                int[] blockArray1 = {GeoBlocks.BRICK.getBlockID(), GeoBlocks.COBBLE.getBlockID(), GeoBlocks.ENGRAVED.getBlockID(), GeoBlocks.FITTED.getBlockID(), GeoBlocks.INSCRIBED.getBlockID(), GeoBlocks.ROUND.getBlockID(), GeoBlocks.SMOOTH.getBlockID(), GeoBlocks.TILE.getBlockID()};
+                int[] blockArray2 = {GeoBlocks.BRICK2.getBlockID(), GeoBlocks.COBBLE2.getBlockID(), GeoBlocks.ENGRAVED2.getBlockID(), GeoBlocks.FITTED2.getBlockID(), GeoBlocks.INSCRIBED2.getBlockID(), GeoBlocks.ROUND2.getBlockID(), GeoBlocks.SMOOTH2.getBlockID(), GeoBlocks.TILE2.getBlockID()};
+                for (int j = 0; j < blockArray1.length; j++) {
+                    for (int i = 0; i < 15; i++) {
+                        registerFacade(blockArray1[j], i);
+                    }
+                }
+
+                for (int j = 0; j < blockArray2.length; j++) {
+                    registerFacade(blockArray2[j], 0);
+                }
+            }
+        } catch (Exception e) {
         }
     }
 }

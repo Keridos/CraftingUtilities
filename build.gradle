@@ -14,7 +14,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 
 mcversion="1.6.4"
-version = "0.3.6"
+version = "0.3.7"
 if (hasProperty('appendBuildNumber')){
 	version = version + "-" + appendBuildNumber
 }
