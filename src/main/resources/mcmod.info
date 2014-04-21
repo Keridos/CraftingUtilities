@@ -21,7 +21,8 @@
     "ExtrabiomesXL",
     "IC2",
     "ProjRed|Core",
-    "ProjRed|Exploration"
+    "ProjRed|Exploration",
+    "GeoStrata"
   ],
   "dependants": [  ],
   "useDependencyInformation": "true"

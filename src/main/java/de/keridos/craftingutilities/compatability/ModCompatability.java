@@ -3,10 +3,6 @@ package de.keridos.craftingutilities.compatability;
 import cpw.mods.fml.common.Loader;
 
 public class ModCompatability {
-    private static ModCompatability instance = null;
-    private static MultipartSupport MultipartHandler = MultipartSupport.getInstance();
-    private static FacadeSupport FacadeHandler = FacadeSupport.getInstance();
-
     public static boolean IC2Loaded = false;
     public static boolean GTLoaded = false;
     public static boolean AM2Loaded = false;
@@ -18,6 +14,9 @@ public class ModCompatability {
     public static boolean PRLoaded = false;
     public static boolean ExtraUtilLoaded = false;
     public static boolean GSLoaded = false;
+    private static ModCompatability instance = null;
+    private static MultipartSupport MultipartHandler = MultipartSupport.getInstance();
+    private static FacadeSupport FacadeHandler = FacadeSupport.getInstance();
 
 
     private ModCompatability() {

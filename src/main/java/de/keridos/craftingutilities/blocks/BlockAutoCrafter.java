@@ -32,8 +32,15 @@ import java.util.Random;
  * To change this template use File | Settings | File Templates.
  */
 public class BlockAutoCrafter extends BlockContainer {
+    @SideOnly(Side.CLIENT)
+    public static Icon topIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon sideIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon botIcon;
     private boolean powered = false;
     private boolean was_powered = false;
+
 
     public BlockAutoCrafter(int id, Material material) {
         super(id, material);
@@ -59,19 +66,10 @@ public class BlockAutoCrafter extends BlockContainer {
         return true;
     }
 
-
     @Override
     public TileEntity createNewTileEntity(World world) {
         return new TileEntityAutoCrafter();
     }
-
-
-    @SideOnly(Side.CLIENT)
-    public static Icon topIcon;
-    @SideOnly(Side.CLIENT)
-    public static Icon sideIcon;
-    @SideOnly(Side.CLIENT)
-    public static Icon botIcon;
 
     @Override
     @SideOnly(Side.CLIENT)

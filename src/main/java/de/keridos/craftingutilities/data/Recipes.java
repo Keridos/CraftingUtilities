@@ -32,41 +32,6 @@ public class Recipes {
         return instance;
     }
 
-    private class LocalInventoryCrafting extends InventoryCrafting {
-        private int inventoryWidth = 3;
-        private ItemStack[] stackList = new ItemStack[9];
-
-        public LocalInventoryCrafting() {
-            super(new Container() {
-                @Override
-                public boolean canInteractWith(EntityPlayer entityplayer) {
-                    return false;
-                }
-            }, 3, 3);
-        }
-
-        @Override
-        public void setInventorySlotContents(int slot, ItemStack itemstack) {
-            stackList[slot] = itemstack;
-        }
-
-        @Override
-        public ItemStack getStackInSlot(int par1) {
-            return par1 >= this.getSizeInventory() ? null : this.stackList[par1];
-        }
-
-        @Override
-        public ItemStack getStackInRowAndColumn(int par1, int par2) {
-            if (par1 >= 0 && par1 < this.inventoryWidth) {
-                int k = par1 + par2 * this.inventoryWidth;
-                return this.getStackInSlot(k);
-            } else {
-                return null;
-            }
-        }
-    }
-
-
     private void registerCraftingRecipes() {
         if (Configuration.chiseledStoneBrickCrafting) {
             GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 4, 3), "BB", "BB", 'B', new ItemStack(Block.stoneBrick, 1, 0));
@@ -333,6 +298,40 @@ public class Recipes {
 
             }
 
+        }
+    }
+
+    private class LocalInventoryCrafting extends InventoryCrafting {
+        private int inventoryWidth = 3;
+        private ItemStack[] stackList = new ItemStack[9];
+
+        public LocalInventoryCrafting() {
+            super(new Container() {
+                @Override
+                public boolean canInteractWith(EntityPlayer entityplayer) {
+                    return false;
+                }
+            }, 3, 3);
+        }
+
+        @Override
+        public void setInventorySlotContents(int slot, ItemStack itemstack) {
+            stackList[slot] = itemstack;
+        }
+
+        @Override
+        public ItemStack getStackInSlot(int par1) {
+            return par1 >= this.getSizeInventory() ? null : this.stackList[par1];
+        }
+
+        @Override
+        public ItemStack getStackInRowAndColumn(int par1, int par2) {
+            if (par1 >= 0 && par1 < this.inventoryWidth) {
+                int k = par1 + par2 * this.inventoryWidth;
+                return this.getStackInSlot(k);
+            } else {
+                return null;
+            }
         }
     }
 }

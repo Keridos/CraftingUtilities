@@ -23,13 +23,6 @@ public class IC2Compat {
         return instance;
     }
 
-    public void registerIC2CoalDustRecipe(ItemStack item) {
-        if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
-            ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound("0"),
-                    new ItemStack(Item.coal, 1));
-        }
-    }
-
     public static ItemStack getIC2Item(String name) {
         try {
             if (Ic2Items == null) Ic2Items = Class.forName("ic2.core.Ic2Items");
@@ -44,6 +37,13 @@ public class IC2Compat {
             System.out.println("IC2 API: Call getItem failed for " + name);
 
             return null;
+        }
+    }
+
+    public void registerIC2CoalDustRecipe(ItemStack item) {
+        if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
+            ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound("0"),
+                    new ItemStack(Item.coal, 1));
         }
     }
 }

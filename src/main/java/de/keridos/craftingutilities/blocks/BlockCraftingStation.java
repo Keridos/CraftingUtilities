@@ -25,6 +25,13 @@ import net.minecraft.world.World;
  */
 public class BlockCraftingStation extends BlockContainer {
 
+    @SideOnly(Side.CLIENT)
+    public static Icon topIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon sideIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon botIcon;
+
     public BlockCraftingStation(int id, Material material) {
         super(id, material);
         setHardness(0.5F);
@@ -37,14 +44,6 @@ public class BlockCraftingStation extends BlockContainer {
     public TileEntity createNewTileEntity(World world) {
         return new TileEntityCraftingStation();
     }
-
-
-    @SideOnly(Side.CLIENT)
-    public static Icon topIcon;
-    @SideOnly(Side.CLIENT)
-    public static Icon sideIcon;
-    @SideOnly(Side.CLIENT)
-    public static Icon botIcon;
 
     @Override
     @SideOnly(Side.CLIENT)

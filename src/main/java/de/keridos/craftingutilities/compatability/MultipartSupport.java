@@ -129,14 +129,14 @@ public class MultipartSupport {
                 int[] blockArray1 = {GeoBlocks.BRICK.getBlockID(), GeoBlocks.COBBLE.getBlockID(), GeoBlocks.ENGRAVED.getBlockID(), GeoBlocks.FITTED.getBlockID(), GeoBlocks.INSCRIBED.getBlockID(), GeoBlocks.ROUND.getBlockID(), GeoBlocks.SMOOTH.getBlockID(), GeoBlocks.TILE.getBlockID()};
                 int[] blockArray2 = {GeoBlocks.BRICK2.getBlockID(), GeoBlocks.COBBLE2.getBlockID(), GeoBlocks.ENGRAVED2.getBlockID(), GeoBlocks.FITTED2.getBlockID(), GeoBlocks.INSCRIBED2.getBlockID(), GeoBlocks.ROUND2.getBlockID(), GeoBlocks.SMOOTH2.getBlockID(), GeoBlocks.TILE2.getBlockID()};
                 for (int j = 0; j < blockArray1.length; j++) {
-                    for (int i = 0; i < 15; i++) {
+                    for (int i = 0; i < 16; i++) {
                         BlockMicroMaterial.createAndRegister(Block.blocksList[blockArray1[j]], i);
                     }
                 }
 
-                for (int j = 0; j < blockArray2.length; j++) {
-                    BlockMicroMaterial.createAndRegister(Block.blocksList[blockArray2[j]], 0);
-                }
+                //for (int j = 0; j < blockArray2.length; j++) {
+                //    BlockMicroMaterial.createAndRegister(Block.blocksList[blockArray2[j]], 0);
+                //}
             }
         } catch (Exception e) {
         }

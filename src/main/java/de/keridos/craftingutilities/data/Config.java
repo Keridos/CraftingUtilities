@@ -3,7 +3,6 @@ package de.keridos.craftingutilities.data;
 import net.minecraftforge.common.Configuration;
 
 public class Config {
-    private static Config instance = null;
     public static boolean chiseledStoneBrickCrafting;
     public static boolean crackedStoneBrickCrafting;
     public static boolean grassCrafting;
@@ -20,7 +19,6 @@ public class Config {
     public static boolean slabToBlockStoneBrickCrafting;
     public static boolean stoneSlabToFullSlabCrafting;
     public static boolean chiseledSandstoneUncrafting;
-
     public static boolean clayUncrafting;
     public static boolean brickUncrafting;
     public static boolean grassUncrafting;
@@ -36,7 +34,6 @@ public class Config {
     public static boolean stairsBirchWoodUncrafting;
     public static boolean stairsJungleWoodUncrafting;
     public static boolean stairsQuartzUncrafting;
-
     public static boolean ironPickaxeSmelting;
     public static boolean ironAxeSmelting;
     public static boolean ironHoeSmelting;
@@ -53,7 +50,6 @@ public class Config {
     public static boolean goldLeggingsSmelting;
     public static boolean goldBootsSmelting;
     public static boolean goldChestplateSmelting;
-
     public static boolean bronzePickaxeSmelting;
     public static boolean bronzeAxeSmelting;
     public static boolean bronzeHoeSmelting;
@@ -63,7 +59,6 @@ public class Config {
     public static boolean bronzeLeggingsSmelting;
     public static boolean bronzeBootsSmelting;
     public static boolean coalDustCompression;
-
     public static boolean addGTMicroblocks;
     public static boolean addMFRMicroblocks;
     public static boolean addBoPMicroblocks;
@@ -72,9 +67,9 @@ public class Config {
     public static boolean addIC2Microblocks;
     public static boolean addGSMicroblocks;
     public static boolean overwriteConflictingRecipes;
-
     public static int autoCrafterID;
     public static int craftingStationID;
+    private static Config instance = null;
 
     private Config() {
     }

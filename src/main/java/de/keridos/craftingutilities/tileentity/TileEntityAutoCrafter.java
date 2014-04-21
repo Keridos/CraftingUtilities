@@ -19,9 +19,9 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory {
     public InventoryCrafting craftMatrix = new LocalInventoryCrafting();
-    private ItemStack[] inventory;
     int timeout = 7;
     long[] timedifference = {0, 0};
+    private ItemStack[] inventory;
 
     public TileEntityAutoCrafter() {
         inventory = new ItemStack[28];
