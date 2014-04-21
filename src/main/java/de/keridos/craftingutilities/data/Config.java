@@ -66,6 +66,7 @@ public class Config {
     public static boolean addProjRedMicroblocks;
     public static boolean addIC2Microblocks;
     public static boolean addGSMicroblocks;
+    public static boolean addMagCropsMicroblocks;
     public static boolean overwriteConflictingRecipes;
     public static int autoCrafterID;
     public static int craftingStationID;
@@ -171,6 +172,7 @@ public class Config {
         addProjRedMicroblocks = config.get("microblocks", "addProjRedMicroblocks", true).getBoolean(true);
         addIC2Microblocks = config.get("microblocks", "addIC2Microblocks", true).getBoolean(true);
         addGSMicroblocks = config.get("microblocks", "addGeoStrataMicroblocks", true).getBoolean(true);
+        addMagCropsMicroblocks = config.get("microblocks", "addMagCropsMicroblocks", true).getBoolean(true);
         config.getCategory("general");
         overwriteConflictingRecipes = config.get("general", "overwriteConflictingRecipes", true).getBoolean(true);
     }

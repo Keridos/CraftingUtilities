@@ -9,6 +9,7 @@ import extrabiomes.api.Stuff;
 import extrabiomes.lib.BlockSettings;
 import gregtechmod.api.GregTech_API;
 import ic2.core.Ic2Items;
+import magicalcrops.ConfigHandler;
 import net.minecraft.block.Block;
 
 /**
@@ -34,6 +35,7 @@ public class MultipartSupport {
         registerEBXLMicroblocks();
         registerIC2Microblocks();
         registerGSMicroblocks();
+        registerMagCropsMicroblocks();
     }
 
     private void registerGTMicroblocks() {
@@ -137,6 +139,23 @@ public class MultipartSupport {
                 //for (int j = 0; j < blockArray2.length; j++) {
                 //    BlockMicroMaterial.createAndRegister(Block.blocksList[blockArray2[j]], 0);
                 //}
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void registerMagCropsMicroblocks() {
+        try {
+            if (ModCompatability.MagCropsLoaded && Configuration.addMagCropsMicroblocks) {
+                for (int i = 0; i < 12; i++) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[ConfigHandler.BlockEssenceBrickID], i);
+                }
+                for (int i = 0; i < 12; i++) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[ConfigHandler.BlockEssenceGlassID], i);
+                }
+                for (int i = 0; i < 12; i++) {
+                    BlockMicroMaterial.createAndRegister(Block.blocksList[ConfigHandler.BlockEssenceStoneID], i);
+                }
             }
         } catch (Exception e) {
         }

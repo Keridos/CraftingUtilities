@@ -9,6 +9,7 @@ import extrabiomes.api.Stuff;
 import extrabiomes.lib.BlockSettings;
 import gregtechmod.api.GregTech_API;
 import ic2.core.Ic2Items;
+import magicalcrops.ConfigHandler;
 import mrtjp.projectred.core.Configurator;
 import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 
@@ -41,6 +42,7 @@ public class FacadeSupport {
         registerPRFacades();
         registerIC2Facades();
         registerGSFacades();
+        registerMagCropsFacades();
     }
 
     private void registerMFRFacades() {
@@ -162,6 +164,23 @@ public class FacadeSupport {
                 //for (int j = 0; j < blockArray2.length; j++) {
                 //    registerFacade(blockArray2[j], 0);
                 //}
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void registerMagCropsFacades() {
+        try {
+            if (ModCompatability.MagCropsLoaded && Configuration.addMagCropsMicroblocks) {
+                for (int i = 0; i < 12; i++) {
+                    registerFacade(ConfigHandler.BlockEssenceBrickID, i);
+                }
+                for (int i = 0; i < 12; i++) {
+                    registerFacade(ConfigHandler.BlockEssenceGlassID, i);
+                }
+                for (int i = 0; i < 12; i++) {
+                    registerFacade(ConfigHandler.BlockEssenceStoneID, i);
+                }
             }
         } catch (Exception e) {
         }

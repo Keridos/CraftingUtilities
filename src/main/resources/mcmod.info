@@ -22,7 +22,8 @@
     "IC2",
     "ProjRed|Core",
     "ProjRed|Exploration",
-    "GeoStrata"
+    "GeoStrata",
+    "magicalcrops"
   ],
   "dependants": [  ],
   "useDependencyInformation": "true"

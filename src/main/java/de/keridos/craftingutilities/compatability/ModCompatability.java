@@ -14,6 +14,7 @@ public class ModCompatability {
     public static boolean PRLoaded = false;
     public static boolean ExtraUtilLoaded = false;
     public static boolean GSLoaded = false;
+    public static boolean MagCropsLoaded = false;
     private static ModCompatability instance = null;
     private static MultipartSupport MultipartHandler = MultipartSupport.getInstance();
     private static FacadeSupport FacadeHandler = FacadeSupport.getInstance();
@@ -41,6 +42,7 @@ public class ModCompatability {
         ExtraUtilLoaded = Loader.isModLoaded("ExtraUtilities");
         PRLoaded = Loader.isModLoaded("ProjRed|Exploration");
         GSLoaded = Loader.isModLoaded("GeoStrata");
+        MagCropsLoaded = Loader.isModLoaded("magicalcrops");
     }
 
 
