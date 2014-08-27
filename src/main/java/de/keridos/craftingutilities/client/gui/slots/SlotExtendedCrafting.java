@@ -1,6 +1,6 @@
 package de.keridos.craftingutilities.client.gui.slots;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.SlotCrafting;
@@ -53,7 +53,7 @@ public class SlotExtendedCrafting extends SlotCrafting {
 
     @Override
     public void onPickupFromSlot(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack) {
-        GameRegistry.onItemCrafted(par1EntityPlayer, par2ItemStack, craftMatrix);
+        FMLCommonHandler.instance().firePlayerCraftingEvent(par1EntityPlayer, par2ItemStack, craftMatrix);
         this.onCrafting(par2ItemStack);
         if (!checkResources()) {
             return;

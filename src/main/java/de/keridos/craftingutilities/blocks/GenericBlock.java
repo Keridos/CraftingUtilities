@@ -12,8 +12,8 @@ import net.minecraft.block.material.Material;
  */
 public class GenericBlock extends Block {
 
-    public GenericBlock(int id, Material material) {
-        super(id, material);
+    public GenericBlock(Material material) {
+        super(material);
     }
 
 }

@@ -1,9 +1,11 @@
 package de.keridos.craftingutilities.compatability;
 
+import cpw.mods.fml.common.registry.GameData;
 import ic2.api.recipe.RecipeInputItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
 
 /**
  * Created by Nico on 26.02.14.
@@ -42,8 +44,11 @@ public class IC2Compat {
 
     public void registerIC2CoalDustRecipe(ItemStack item) {
         if (ic2.api.recipe.Recipes.compressor.getOutputFor(item, true) == null) {
-            ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound("0"),
-                    new ItemStack(Item.coal, 1));
+            Item coal = GameData.getItemRegistry().getRaw("coal");
+            if (coal != null) {
+                ic2.api.recipe.Recipes.compressor.addRecipe(new RecipeInputItemStack(item, 1), new NBTTagCompound(),
+                        new ItemStack(coal, 1));
+            }
         }
     }
 }

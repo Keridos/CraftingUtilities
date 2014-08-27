@@ -16,7 +16,6 @@ public class ModCompatability {
     public static boolean GSLoaded = false;
     public static boolean MagCropsLoaded = false;
     private static ModCompatability instance = null;
-    private static MultipartSupport MultipartHandler = MultipartSupport.getInstance();
     private static FacadeSupport FacadeHandler = FacadeSupport.getInstance();
 
 
@@ -47,9 +46,6 @@ public class ModCompatability {
 
 
     public void registerModCompatBlocks() {
-        if (FMPLoaded) {
-            MultipartHandler.registerMicroblocks();
-        }
         if (BCLoaded) {
             FacadeHandler.registerModFacades();
         }

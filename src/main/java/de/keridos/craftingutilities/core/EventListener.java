@@ -1,8 +1,8 @@
 package de.keridos.craftingutilities.core;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import de.keridos.craftingutilities.data.Recipes;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class EventListener {
@@ -23,7 +23,7 @@ public class EventListener {
         MinecraftForge.EVENT_BUS.register(new EventListener());
     }
 
-    @ForgeSubscribe
+    @SubscribeEvent
     public void handleEvent(OreDictionary.OreRegisterEvent event) {
         RecipeManager.registerOreRecipes(event.Name, event.Ore);
     }

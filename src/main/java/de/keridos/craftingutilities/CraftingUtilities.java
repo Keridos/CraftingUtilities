@@ -6,21 +6,19 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import de.keridos.craftingutilities.blocks.Blocks;
 import de.keridos.craftingutilities.client.gui.GuiHandler;
 import de.keridos.craftingutilities.compatability.ModCompatability;
 import de.keridos.craftingutilities.core.EventListener;
-import de.keridos.craftingutilities.core.PacketHandler;
 import de.keridos.craftingutilities.core.proxy.CommonProxy;
 import de.keridos.craftingutilities.data.Config;
 import de.keridos.craftingutilities.data.Recipes;
 import de.keridos.craftingutilities.lib.Reference;
-import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.config.Configuration;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
-@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
+//@NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = {Reference.CHANNEL}, packetHandler = PacketHandler.class)
 public class CraftingUtilities {
     @Mod.Instance(Reference.MOD_ID)
     public static CraftingUtilities instance;

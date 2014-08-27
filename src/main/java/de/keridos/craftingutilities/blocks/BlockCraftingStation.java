@@ -1,6 +1,5 @@
 package de.keridos.craftingutilities.blocks;
 
-import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.keridos.craftingutilities.CraftingUtilities;
@@ -9,11 +8,11 @@ import de.keridos.craftingutilities.tileentity.TileEntityCraftingStation;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 /**
@@ -26,35 +25,36 @@ import net.minecraft.world.World;
 public class BlockCraftingStation extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
-    public static Icon topIcon;
+    public static IIcon topIcon;
     @SideOnly(Side.CLIENT)
-    public static Icon sideIcon;
+    public static IIcon sideIcon;
     @SideOnly(Side.CLIENT)
-    public static Icon botIcon;
+    public static IIcon botIcon;
 
-    public BlockCraftingStation(int id, Material material) {
-        super(id, material);
+    public BlockCraftingStation(Material material) {
+        super(material);
         setHardness(0.5F);
-        setStepSound(Block.soundWoodFootstep);
-        setUnlocalizedName("BlockCraftingStation");
+        setStepSound(Block.soundTypeWood);
+        setBlockName("craftingutilities:blockCraftingStation");
         setCreativeTab(CreativeTabs.tabBlock);
+        setHarvestLevel("axe", 0);
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world) {
+    public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileEntityCraftingStation();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_top");
         sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_side");
         botIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_bot");
     }
 
     @Override
-    public Icon getIcon(int side, int meta) {
+    public IIcon getIcon(int side, int meta) {
         if (side == 0) {
             return botIcon;
         } else if (side == 1) {
@@ -67,7 +67,7 @@ public class BlockCraftingStation extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            FMLNetworkHandler.openGui(player, CraftingUtilities.instance, 1, world, x, y, z);
+            player.openGui(CraftingUtilities.instance, 1, world, x, y, z);
         }
         return true;
     }

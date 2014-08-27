@@ -1,17 +1,8 @@
 package de.keridos.craftingutilities.compatability;
 
 
-import Reika.GeoStrata.Registry.GeoBlocks;
-import biomesoplenty.configuration.BOPConfigurationIDs;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import de.keridos.craftingutilities.data.Config;
-import extrabiomes.api.Stuff;
-import extrabiomes.lib.BlockSettings;
-import gregtechmod.api.GregTech_API;
-import ic2.core.Ic2Items;
-import magicalcrops.ConfigHandler;
-import mrtjp.projectred.core.Configurator;
-import powercrystals.minefactoryreloaded.MineFactoryReloadedCore;
 
 /**
  * Created by Nico on 26.02.14.
@@ -35,17 +26,17 @@ public class FacadeSupport {
     }
 
     public void registerModFacades() {
-        registerMFRFacades();
+       /* registerMFRFacades();
         registerGTFacades();
         registerBoPFacades();
         registerEBXLFacades();
         registerPRFacades();
         registerIC2Facades();
         registerGSFacades();
-        registerMagCropsFacades();
+        registerMagCropsFacades();*/
     }
 
-    private void registerMFRFacades() {
+    /*private void registerMFRFacades() {
         if (ModCompatability.MFRLoaded && Configuration.addMFRMicroblocks) {
             for (int i = 0; i < 11; i++) {
                 registerFacade(MineFactoryReloadedCore.factoryDecorativeBrickBlock.blockID, i);
@@ -184,5 +175,5 @@ public class FacadeSupport {
             }
         } catch (Exception e) {
         }
-    }
+    }*/
 }

@@ -39,6 +39,16 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     }
 
     @Override
+    public boolean hasCustomInventoryName() {
+        return false;
+    }
+
+    @Override
+    public String getInventoryName() {
+        return "AutoCrafter";
+    }
+
+    @Override
     public boolean canInsertItem(int i, ItemStack itemstack, int j) {
         if (i <= 18) {
             return true;
@@ -178,7 +188,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
                 setInventorySlotContents(slot, null);
             } else {
                 itemstack = itemstack.splitStack(count);
-                onInventoryChanged();
+                markDirty();
             }
         }
         return itemstack;
@@ -198,18 +208,9 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
         if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
             itemstack.stackSize = getInventoryStackLimit();
         }
-        onInventoryChanged();
+        markDirty();
     }
 
-    @Override
-    public String getInvName() {
-        return "AutoCrafter";
-    }
-
-    @Override
-    public boolean isInvNameLocalized() {
-        return true;
-    }
 
     @Override
     public int getInventoryStackLimit() {
@@ -222,12 +223,12 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     }
 
     @Override
-    public void openChest() {
+    public void openInventory() {
 
     }
 
     @Override
-    public void closeChest() {
+    public void closeInventory() {
 
     }
 
@@ -260,10 +261,10 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
 
-        NBTTagList list = compound.getTagList("ItemsAutoCrafter");
+        NBTTagList list = compound.getTagList("ItemsAutoCrafter", 0);
 
         for (int i = 0; i < list.tagCount(); i++) {
-            NBTTagCompound item = (NBTTagCompound) list.tagAt(i);
+            NBTTagCompound item = (NBTTagCompound) list.getCompoundTagAt(i);
             int slot = item.getByte("ItemsAutoCrafter");
 
             if (slot >= 0 && slot < getSizeInventory()) {

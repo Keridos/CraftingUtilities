@@ -22,7 +22,7 @@ public class GuiHandler implements IGuiHandler {
     private static GuiHandler instance = null;
 
     private GuiHandler() {
-        NetworkRegistry.instance().registerGuiHandler(CraftingUtilities.instance, this);
+        NetworkRegistry.INSTANCE.registerGuiHandler(CraftingUtilities.instance, this);
     }
 
     public static GuiHandler getInstance() {
@@ -34,7 +34,7 @@ public class GuiHandler implements IGuiHandler {
 
     @Override
     public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-        TileEntity entity = world.getBlockTileEntity(x, y, z);
+        TileEntity entity = world.getTileEntity(x, y, z);
 
         switch (id) {
             case 0:
@@ -56,7 +56,7 @@ public class GuiHandler implements IGuiHandler {
 
     @Override
     public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-        TileEntity entity = world.getBlockTileEntity(x, y, z);
+        TileEntity entity = world.getTileEntity(x, y, z);
 
         switch (id) {
             case 0:

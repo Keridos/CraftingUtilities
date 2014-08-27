@@ -13,58 +13,58 @@ import java.util.List;
 
 // Code from Buildcraft, I (Keridos) did not write this on my own.
 
-public class CraftingHelper {
+public final class CraftingHelper {
+    /**
+     * Deactivate constructor
+     */
+    private CraftingHelper() {
+    }
+
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static IRecipe findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World) {
-        int var3 = 0;
-        ItemStack var4 = null;
-        ItemStack var5 = null;
-        int var6;
-
-        for (var6 = 0; var6 < par1InventoryCrafting.getSizeInventory(); ++var6) {
-            ItemStack var7 = par1InventoryCrafting.getStackInSlot(var6);
-
-            if (var7 != null) {
-                if (var3 == 0) {
-                    var4 = var7;
+    public static IRecipe findMatchingRecipe(
+            InventoryCrafting par1InventoryCrafting, World par2World) {
+// Begin repair recipe handler
+        int itemNum = 0;
+        ItemStack item1 = null;
+        ItemStack item2 = null;
+        int slot;
+        for (slot = 0; slot < par1InventoryCrafting.getSizeInventory(); ++slot) {
+            ItemStack itemInSlot = par1InventoryCrafting.getStackInSlot(slot);
+            if (itemInSlot != null) {
+                if (itemNum == 0) {
+                    item1 = itemInSlot;
                 }
-
-                if (var3 == 1) {
-                    var5 = var7;
+                if (itemNum == 1) {
+                    item2 = itemInSlot;
                 }
-
-                ++var3;
+                ++itemNum;
             }
         }
-
-        if (var3 == 2 && var4.itemID == var5.itemID && var4.stackSize == 1 && var5.stackSize == 1 && Item.itemsList[var4.itemID].isRepairable()) {
-            Item var11 = Item.itemsList[var4.itemID];
-            int var13 = var11.getMaxDamage() - var4.getItemDamageForDisplay();
-            int var8 = var11.getMaxDamage() - var5.getItemDamageForDisplay();
-            int var9 = var13 + var8 + var11.getMaxDamage() * 5 / 100;
-            int var10 = var11.getMaxDamage() - var9;
-
-            if (var10 < 0) {
-                var10 = 0;
+        if (itemNum == 2 && item1.getItem() == item2.getItem()
+                && item1.stackSize == 1 && item2.stackSize == 1
+                && item1.getItem().isRepairable()) {
+            Item itemBase = item1.getItem();
+            int item1Durability = itemBase.getMaxDamage() - item1.getItemDamageForDisplay();
+            int item2Durability = itemBase.getMaxDamage() - item2.getItemDamageForDisplay();
+            int repairAmt = item1Durability + item2Durability + itemBase.getMaxDamage() * 5 / 100;
+            int newDamage = itemBase.getMaxDamage() - repairAmt;
+            if (newDamage < 0) {
+                newDamage = 0;
             }
-
             ArrayList ingredients = new ArrayList<ItemStack>(2);
-            ingredients.add(var4);
-            ingredients.add(var5);
-            return new ShapelessRecipes(new ItemStack(var4.itemID, 1, var10), ingredients);
+            ingredients.add(item1);
+            ingredients.add(item2);
+            return new ShapelessRecipes(new ItemStack(item1.getItem(), 1, newDamage), ingredients);
         } else {
+// End repair recipe handler
             List recipes = CraftingManager.getInstance().getRecipeList();
-            for (var6 = 0; var6 < recipes.size(); ++var6) {
-                IRecipe var12 = (IRecipe) recipes.get(var6);
-
-                if (var12.matches(par1InventoryCrafting, par2World)) {
-                    return var12;
+            for (int index = 0; index < recipes.size(); ++index) {
+                IRecipe currentRecipe = (IRecipe) recipes.get(index);
+                if (currentRecipe.matches(par1InventoryCrafting, par2World)) {
+                    return currentRecipe;
                 }
             }
-
             return null;
         }
     }
-
-
 }

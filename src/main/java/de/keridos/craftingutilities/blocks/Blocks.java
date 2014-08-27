@@ -7,7 +7,6 @@ import de.keridos.craftingutilities.tileentity.TileEntityAutoCrafter;
 import de.keridos.craftingutilities.tileentity.TileEntityCraftingStation;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,32 +34,30 @@ public class Blocks {
 
 
     public void setupBlocks() {
-        if (Configuration.autoCrafterID > 0) {
-            blockAutoCrafter = new BlockAutoCrafter(Configuration.autoCrafterID, Material.wood);
+        if (Configuration.autoCrafter) {
+            blockAutoCrafter = new BlockAutoCrafter(Material.wood);
         }
-        if (Configuration.craftingStationID > 0) {
-            blockCraftingStation = new BlockCraftingStation(Configuration.craftingStationID, Material.wood);
+        if (Configuration.craftingStation) {
+            blockCraftingStation = new BlockCraftingStation(Material.wood);
         }
     }
 
     public void registerBlocks() {
-        if (Configuration.autoCrafterID > 0) {
+        if (Configuration.autoCrafter) {
             GameRegistry.registerBlock(blockAutoCrafter, "BlockAutoCrafter");
             LanguageRegistry.addName(blockAutoCrafter, "Auto Crafter");
-            MinecraftForge.setBlockHarvestLevel(blockAutoCrafter, "axe", 0);
         }
-        if (Configuration.craftingStationID > 0) {
+        if (Configuration.craftingStation) {
             GameRegistry.registerBlock(blockCraftingStation, "BlockCraftingStation");
-            LanguageRegistry.addName(blockCraftingStation, "Crafting Station");
-            MinecraftForge.setBlockHarvestLevel(blockCraftingStation, "axe", 0);
+            LanguageRegistry.instance().addName(blockCraftingStation, "Crafting Station");
         }
     }
 
     public void registerTileEntities() {
-        if (Configuration.autoCrafterID > 0) {
+        if (Configuration.autoCrafter) {
             GameRegistry.registerTileEntity(TileEntityAutoCrafter.class, "craftingutilities_autocrafter");
         }
-        if (Configuration.craftingStationID > 0) {
+        if (Configuration.craftingStation) {
             GameRegistry.registerTileEntity(TileEntityCraftingStation.class, "craftingutilities_craftingstation");
         }
     }

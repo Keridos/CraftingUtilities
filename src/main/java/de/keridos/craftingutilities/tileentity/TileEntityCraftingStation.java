@@ -76,7 +76,7 @@ public class TileEntityCraftingStation extends TileEntity implements ISidedInven
                 setInventorySlotContents(slot, null);
             } else {
                 itemstack = itemstack.splitStack(count);
-                onInventoryChanged();
+                markDirty();
             }
         }
         return itemstack;
@@ -96,17 +96,17 @@ public class TileEntityCraftingStation extends TileEntity implements ISidedInven
         if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
             itemstack.stackSize = getInventoryStackLimit();
         }
-        onInventoryChanged();
+        markDirty();
     }
 
     @Override
-    public String getInvName() {
+    public boolean hasCustomInventoryName() {
+        return false;
+    }
+
+    @Override
+    public String getInventoryName() {
         return "AutoCrafter";
-    }
-
-    @Override
-    public boolean isInvNameLocalized() {
-        return true;
     }
 
     @Override
@@ -120,12 +120,12 @@ public class TileEntityCraftingStation extends TileEntity implements ISidedInven
     }
 
     @Override
-    public void openChest() {
+    public void openInventory() {
 
     }
 
     @Override
-    public void closeChest() {
+    public void closeInventory() {
 
     }
 
@@ -158,10 +158,10 @@ public class TileEntityCraftingStation extends TileEntity implements ISidedInven
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
 
-        NBTTagList list = compound.getTagList("ItemsAutoCrafter");
+        NBTTagList list = compound.getTagList("ItemsAutoCrafter", 0);
 
         for (int i = 0; i < list.tagCount(); i++) {
-            NBTTagCompound item = (NBTTagCompound) list.tagAt(i);
+            NBTTagCompound item = (NBTTagCompound) list.getCompoundTagAt(i);
             int slot = item.getByte("ItemsAutoCrafter");
 
             if (slot >= 0 && slot < getSizeInventory()) {
