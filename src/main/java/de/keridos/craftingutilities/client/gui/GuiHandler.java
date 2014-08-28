@@ -44,7 +44,7 @@ public class GuiHandler implements IGuiHandler {
                     return null;
                 }
             case 1:
-                if (entity != null && entity instanceof TileEntityAutoCrafter) {
+                if (entity != null && entity instanceof TileEntityCraftingStation) {
                     return new ContainerCraftingStation(player.inventory, (TileEntityCraftingStation) entity);
                 } else {
                     return null;

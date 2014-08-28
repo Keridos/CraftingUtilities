@@ -50,7 +50,8 @@ public class BlockAutoCrafter extends BlockContainer {
         setHarvestLevel("axe", 0);
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
+    @Override
+    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, Block par5) {
         if (!par1World.isRemote) {
             if (par1World.isBlockIndirectlyGettingPowered(par2, par3, par4)) {
                 TileEntityAutoCrafter tile = (TileEntityAutoCrafter) par1World.getTileEntity(par2, par3, par4);
@@ -93,7 +94,7 @@ public class BlockAutoCrafter extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            player.openGui(CraftingUtilities.instance, 1, world, x, y, z);
+            player.openGui(CraftingUtilities.instance, 0, world, x, y, z);
         }
         return true;
     }

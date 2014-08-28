@@ -3,6 +3,7 @@ package de.keridos.craftingutilities.compatability;
 
 import cpw.mods.fml.common.event.FMLInterModComms;
 import de.keridos.craftingutilities.data.Config;
+import net.minecraft.block.Block;
 
 /**
  * Created by Nico on 26.02.14.
@@ -21,22 +22,22 @@ public class FacadeSupport {
         return instance;
     }
 
-    private void registerFacade(int id, int c) {
-        FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", String.format("%d@%d", id, c));
+    private void registerFacade(Block block, int c) {
+        FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", String.format("%d@%d", block, c));
     }
 
     public void registerModFacades() {
-       /* registerMFRFacades();
+        /*registerMFRFacades();
         registerGTFacades();
         registerBoPFacades();
-        registerEBXLFacades();
+        //registerEBXLFacades();
         registerPRFacades();
         registerIC2Facades();
-        registerGSFacades();
-        registerMagCropsFacades();*/
+        //registerGSFacades();
+        registerMagCropsFacades(); */
     }
-
-    /*private void registerMFRFacades() {
+    /*
+    private void registerMFRFacades() {
         if (ModCompatability.MFRLoaded && Configuration.addMFRMicroblocks) {
             for (int i = 0; i < 11; i++) {
                 registerFacade(MineFactoryReloadedCore.factoryDecorativeBrickBlock.blockID, i);
@@ -99,7 +100,7 @@ public class FacadeSupport {
         }
     }
 
-    private void registerEBXLFacades() {
+    /*private void registerEBXLFacades() {
         if (ModCompatability.EBXLLoaded && Configuration.addEBXLMicroblocks) {
             registerFacade(BlockSettings.REDROCK.getID(), 0);
             registerFacade(BlockSettings.REDROCK.getID(), 1);
@@ -141,6 +142,7 @@ public class FacadeSupport {
         }
     }
 
+    /*
     private void registerGSFacades() {
         try {
             if (ModCompatability.GSLoaded && Configuration.addGSMicroblocks) {
@@ -175,5 +177,5 @@ public class FacadeSupport {
             }
         } catch (Exception e) {
         }
-    }*/
+    }    */
 }

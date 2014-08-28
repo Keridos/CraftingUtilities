@@ -75,9 +75,8 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
     }
 
     private boolean checkTimeout() {
-        timedifference[1] = timedifference[0];
-        timedifference[0] = getWorldObj().getWorldTime();
-        if (timedifference[0] - timedifference[1] <= timeout) {
+        timedifference[1] = getWorldObj().getWorldTime();
+        if (timedifference[1] - timedifference[0] <= timeout) {
             return true;
         } else {
             return false;
@@ -127,6 +126,7 @@ public class TileEntityAutoCrafter extends TileEntity implements ISidedInventory
         if (recipe == null || checkTimeout()) {
             return;
         }
+        timedifference[0] = getWorldObj().getWorldTime();
         ItemStack result = recipe.getCraftingResult(craftMatrix);
         if (result == null || !checkResources()) {
             return;
