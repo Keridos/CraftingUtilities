@@ -63,13 +63,6 @@ public class Config {
     public static boolean bronzeBootsSmelting;
     public static boolean coalDustCompression;
     public static boolean addGTMicroblocks;
-    public static boolean addMFRMicroblocks;
-    public static boolean addBoPMicroblocks;
-    public static boolean addEBXLMicroblocks;
-    public static boolean addProjRedMicroblocks;
-    public static boolean addIC2Microblocks;
-    public static boolean addGSMicroblocks;
-    public static boolean addMagCropsMicroblocks;
     public static boolean overwriteConflictingRecipes;
     public static boolean autoCrafter;
     public static boolean craftingStation;
@@ -171,13 +164,6 @@ public class Config {
         config.getCategory("microblocks");
         config.addCustomCategoryComment("microblocks", "Facades Support for Mods");
         addGTMicroblocks = config.get("microblocks", "addGTMicroblocks", true).getBoolean(true);
-        addMFRMicroblocks = config.get("microblocks", "addMFRMicroblocks", true).getBoolean(true);
-        addBoPMicroblocks = config.get("microblocks", "addBoPMicroblocks", true).getBoolean(true);
-        addEBXLMicroblocks = config.get("microblocks", "addEBXLMicroblocks", true).getBoolean(true);
-        addProjRedMicroblocks = config.get("microblocks", "addProjRedMicroblocks", true).getBoolean(true);
-        addIC2Microblocks = config.get("microblocks", "addIC2Microblocks", true).getBoolean(true);
-        addGSMicroblocks = config.get("microblocks", "addGeoStrataMicroblocks", true).getBoolean(true);
-        addMagCropsMicroblocks = config.get("microblocks", "addMagCropsMicroblocks", true).getBoolean(true);
         config.getCategory("general");
         overwriteConflictingRecipes = config.get("general", "overwriteConflictingRecipes", true).getBoolean(true);
     }
