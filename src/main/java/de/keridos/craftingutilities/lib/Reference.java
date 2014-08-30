@@ -6,5 +6,5 @@ public class Reference {
     public static final String VERSION = "0.4.0";
     public static final String CHANNEL = "CraftUtilities";
     public static final String PROXY_LOCATION = "de.keridos.craftingutilities.core.proxy";
-    public static final String DEPENDENCIES = "after:arsmagica2;after:gregtech_addon;after:BuildCraft|Transport;after:MineFactoryReloaded;after:BiomesOPlenty;after:ExtrabiomesXL;after:IC2;after:ProjRed|Exploration;after:ProjRed|Core;after:GeoStrata;after:magicalcrops";
+    public static final String DEPENDENCIES = "after:arsmagica2;after:gregtech_addon;after:BuildCraft|Transport";
 }

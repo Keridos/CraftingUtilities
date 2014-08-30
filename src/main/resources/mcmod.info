@@ -1,7 +1,7 @@
 [{
   "modid": "CraftingUtilities",
   "name": "Crafting Utilities",
-  "description": "Adds a bunch of handy recipes and some Microblocks/Facades for some mods. And an autocrafter.",
+  "description": "Adds a bunch of handy recipes and some Facades for some mods. And an autocrafter.",
   "version": "0.4.0",
   "mcversion": "1.7.10",
   "url": "",
@@ -15,15 +15,7 @@
   "dependencies": [
     "arsmagica2",
     "gregtech_addon",
-    "BuildCraft|Transport",
-    "MineFactoryReloaded",
-    "BiomesOPlenty",
-    "ExtrabiomesXL",
-    "IC2",
-    "ProjRed|Core",
-    "ProjRed|Exploration",
-    "GeoStrata",
-    "magicalcrops"
+    "BuildCraft|Transport"
   ],
   "dependants": [  ],
   "useDependencyInformation": "true"

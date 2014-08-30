@@ -7,13 +7,6 @@ package de.keridos.craftingutilities.core.proxy;
  * Time: 17:48
  * To change this template use File | Settings | File Templates.
  */
-public class CommonProxy {
+public abstract class CommonProxy implements IProxy {
 
-    public void initRenderers() {
-
-    }
-
-    public void initSounds() {
-
-    }
 }
