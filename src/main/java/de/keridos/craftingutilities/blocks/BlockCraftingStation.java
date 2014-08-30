@@ -3,7 +3,6 @@ package de.keridos.craftingutilities.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.keridos.craftingutilities.CraftingUtilities;
-import de.keridos.craftingutilities.lib.Reference;
 import de.keridos.craftingutilities.tileentity.TileEntityCraftingStation;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -48,9 +47,9 @@ public class BlockCraftingStation extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister icon) {
-        topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_top");
-        sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_side");
-        botIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_bot");
+        //topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_top");
+        //sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_side");
+        //botIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "craftingstation_bot");
     }
 
     @Override
