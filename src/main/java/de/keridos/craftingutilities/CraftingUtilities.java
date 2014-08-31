@@ -22,7 +22,7 @@ public class CraftingUtilities {
     @Mod.Instance(Reference.MOD_ID)
     public static CraftingUtilities instance;
 
-    @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".CommonProxy")
+    @SidedProxy(clientSide = Reference.PROXY_LOCATION + ".ClientProxy", serverSide = Reference.PROXY_LOCATION + ".ServerProxy")
     public static IProxy proxy;
 
     private static Config config = Config.getInstance();
@@ -42,8 +42,6 @@ public class CraftingUtilities {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.initRenderers();
-        proxy.initSounds();
         BlockHandler.registerBlocks();
         BlockHandler.registerTileEntities();
         ModCompat.registerModCompatBlocks();

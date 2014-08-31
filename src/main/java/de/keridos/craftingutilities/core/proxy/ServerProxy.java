@@ -5,11 +5,4 @@ package de.keridos.craftingutilities.core.proxy;
  */
 public class ServerProxy extends CommonProxy {
 
-    public void initRenderers() {
-
-    }
-
-    public void initSounds() {
-
-    }
 }

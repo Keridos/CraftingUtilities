@@ -8,11 +8,5 @@ package de.keridos.craftingutilities.core.proxy;
  * To change this template use File | Settings | File Templates.
  */
 public class ClientProxy extends CommonProxy {
-    public void initRenderers() {
 
-    }
-
-    public void initSounds() {
-
-    }
 }
