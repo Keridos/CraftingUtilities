@@ -237,7 +237,7 @@ public class Recipes {
     private void registerBlockRecipes() {
         if (Configuration.autoCrafter) {
             GameRegistry.addRecipe(new ItemStack(BlockHandler.blockAutoCrafter, 1), "IPI", "PWP", "LRL", 'I', new ItemStack(getItem("iron_ingot")), 'P',
-                    new ItemStack(getItem("piston")), 'W', new ItemStack(getItem("crafting_bench")), 'L', new ItemStack(getItem("planks")), 'R',
+                    new ItemStack(getItem("piston")), 'W', new ItemStack(getItem("crafting_table")), 'L', new ItemStack(getItem("planks")), 'R',
                     new ItemStack(getItem("redstone_block")));
         }
         if (Configuration.craftingStation) {
