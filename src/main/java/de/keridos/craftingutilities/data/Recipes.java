@@ -40,10 +40,10 @@ public class Recipes {
 
     private void registerCraftingRecipes() {
         if (Configuration.chiseledStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(getItem("stonebrick"), 4, 3), "BB", "BB", 'B', new ItemStack(getItem("stoneBrick"), 1, 0));
+            GameRegistry.addRecipe(new ItemStack(getItem("stonebrick"), 4, 3), "BB", "BB", 'B', new ItemStack(getItem("stonebrick"), 1, 0));
         }
         if (Configuration.crackedStoneBrickCrafting) {
-            GameRegistry.addRecipe(new ItemStack(getItem("stonebrick"), 4, 2), "BB", "BB", 'B', new ItemStack(getItem("stoneBrick"), 1, 3));
+            GameRegistry.addRecipe(new ItemStack(getItem("stonebrick"), 4, 2), "BB", "BB", 'B', new ItemStack(getItem("stonebrick"), 1, 3));
         }                                                                                                                                           
         if (Configuration.grassCrafting) {
             GameRegistry.addRecipe(new ItemStack(getItem("grass"), 1), "SSS", "SDS", "SSS", 'D', new ItemStack(getItem("dirt"), 1), 'S',
